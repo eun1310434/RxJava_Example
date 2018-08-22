@@ -17,9 +17,9 @@ package com.eun1310434.java.rx.basic;
 
 import io.reactivex.Observable;
 
-public class Rx_Calculate {
+public class Rx_Observable_Calculate {
 	public static void main(String[] args) { 
-		new Rx_Calculate().run();
+		new Rx_Observable_Calculate().run();
 	}
 	
 	public void run() {

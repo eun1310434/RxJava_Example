@@ -22,7 +22,7 @@ package com.eun1310434.java.rx.basic;
 import io.reactivex.Observable;
 
 
-public class Rx_Just {
+public class Rx_Observable_Just {
 	public void emit() {
 		Observable
 		.just(1,2,3,4,5,6,7,8,9,10) //just() : Observable의 선언방식 
@@ -30,7 +30,7 @@ public class Rx_Just {
 	}
 
 	public static void main(String args[]) { 
-		Rx_Just just = new Rx_Just();
+		Rx_Observable_Just just = new Rx_Observable_Just();
 		just.emit();
 	}	
 }

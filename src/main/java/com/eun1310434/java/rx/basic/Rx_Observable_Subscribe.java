@@ -34,7 +34,7 @@
       01) void dispose()
           - Observable에게 더 이상 데이터를 발행하지 않도록 구독을 해지하는 함수
           - 만약 Observable::onComplete()발행 시 별도로 Disposable::dipose()를 발행할 필요 없으며 자동적으로 구독 해지 됨.
-               * Observable::onComplete -> Disposable::dipose -> 구독 해지
+            * Observable::onComplete -> Disposable::dipose -> 구독 해지
       02) booelan isDisposed()
           - 구독 확인 함수
 ==================================================================================================*/
@@ -46,7 +46,7 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
-public class Rx_Subscribe {
+public class Rx_Observable_Subscribe {
 	public <T> void withObserver() { 
 		Observable<String> source = Observable.just("A", "B", "C");
 		source.subscribe(new Observer<String>() {
@@ -104,7 +104,7 @@ public class Rx_Subscribe {
 	}
 	
 	public static void main(String[] args) { 
-		Rx_Subscribe rx_subscribe = new Rx_Subscribe();
+		Rx_Observable_Subscribe rx_subscribe = new Rx_Observable_Subscribe();
 		System.out.println("01.Subscribe With Observer anonymous class");
 		rx_subscribe.withObserver();
 		System.out.println("");

@@ -18,7 +18,7 @@ package com.eun1310434.java.rx.basic;
 
 import io.reactivex.Observable;
 
-public class Rx_Print {	
+public class Rx_Observable_Print {	
 	
 	public void emit() {
 		Observable // Observable : 데이터의 변화가 발생하는 데이터 소스(data source)
@@ -29,7 +29,7 @@ public class Rx_Print {
 	}
 
 	public static void main(String args[]) { 
-		Rx_Print demo = new Rx_Print();
+		Rx_Observable_Print demo = new Rx_Observable_Print();
 		demo.emit();
 	}	
 }
