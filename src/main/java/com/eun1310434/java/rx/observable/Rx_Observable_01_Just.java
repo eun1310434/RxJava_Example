@@ -26,9 +26,10 @@ import io.reactivex.Observable;
 
 public class Rx_Observable_01_Just {
 	public void emit() {
+		CommonUtils.exampleStart("01) emit"); 	
 		Observable
 		.just(1,2,3,4,5,6,7,8,9,10) //just() : Observable의 선언방식 
-		.subscribe(System.out::println); 		
+		.subscribe(System.out::println);
 		CommonUtils.exampleComplete();	
 	}
 

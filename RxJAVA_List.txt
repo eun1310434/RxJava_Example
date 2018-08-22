@@ -20,12 +20,12 @@
 ● 2.1.1 just() 함수 
 ● 2.1.2 subscribe() 함수와 Disposable 객체 
 ● 2.1.3 create() 함수 
-○ 2.1.4 fromArray() 함수 
-○ 2.1.5 fromIterable() 함수 
+● 2.1.4 fromArray() 함수 
+● 2.1.5 fromIterable() 함수 
 ○ 2.1.6 fromCallable() 함수 
 ○ 2.1.7 fromFuture() 함수 
 ○ 2.1.8 fromPubilsher() 함수 
-○ 2.2 Single 클래스 
+○ 2.2.0 Single 클래스 
 ○ 2.2.1 just() 함수 
 ○ 2.2.2 Observable에서 Single 클래스 사용 
 ○ 2.2.3 Single 클래스의 올바른 사용 방법 

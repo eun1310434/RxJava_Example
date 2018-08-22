@@ -25,8 +25,14 @@ public class CommonUtils {
 		Log.it(obj);
 	}
 	
+
+	public static void exampleStart(String _title) { 
+		System.out.println(">> "+_title);
+	}
+	
 	public static void exampleComplete() { 
-		System.out.println("----------------------------------------------");
+		System.out.println(">> Finish");
+		System.out.println("");
 	}
 	
 	public static void sleep(int millis) { 

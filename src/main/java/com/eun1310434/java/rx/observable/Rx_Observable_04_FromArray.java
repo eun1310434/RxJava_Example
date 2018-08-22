@@ -23,7 +23,7 @@ import io.reactivex.Observable;
 
 public class Rx_Observable_04_FromArray {
 	public void integerArray() { 
-		System.out.println("01) integerArray");
+		CommonUtils.exampleStart("01) integerArray");
 		Integer[] arr = {100, 200, 300}; // Declaration Integer array
 		Observable<Integer> source = Observable.fromArray(arr);
 		source.subscribe(System.out::println);// method reference java 8
@@ -31,7 +31,7 @@ public class Rx_Observable_04_FromArray {
 	}
 	
 	public void intArray() {
-		System.out.println("02) intArray");
+		CommonUtils.exampleStart("02) intArray");
 		int[] intArray = {400, 500, 600}; // Declaration int array
 		Observable<Integer> source = Observable.fromArray(toIntegerArray(intArray));
 		source.subscribe(System.out::println);// method reference java 8

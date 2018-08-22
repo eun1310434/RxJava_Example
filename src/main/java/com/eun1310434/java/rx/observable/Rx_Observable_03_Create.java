@@ -34,7 +34,7 @@ import io.reactivex.functions.Consumer;
 
 public class Rx_Observable_03_Create {
 	public void lambda() {
-		System.out.println("01) Lambda");
+		CommonUtils.exampleStart("01) Lambda");
 		Observable<Integer> source = Observable.create((ObservableEmitter<Integer> emitter) -> {
 			emitter.onNext(100);
 			emitter.onNext(200);
@@ -49,7 +49,7 @@ public class Rx_Observable_03_Create {
 	
 	
 	public void anonymous() {
-		System.out.println("02) Anonymous Print");
+		CommonUtils.exampleStart("02) Anonymous Print");
 		Observable<Integer> source = Observable.create(new ObservableOnSubscribe<Integer>() {
 			@Override
 			public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {

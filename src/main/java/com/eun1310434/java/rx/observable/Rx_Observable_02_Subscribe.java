@@ -50,6 +50,8 @@ import io.reactivex.functions.Consumer;
 
 public class Rx_Observable_02_Subscribe {
 	public <T> void withObserver() { 
+		CommonUtils.exampleStart("01) Subscribe With Observer anonymous class"); 	
+		
 		Observable<String> source = Observable.just("A", "B", "C");
 		source.subscribe(new Observer<String>() {
 			@Override
@@ -82,6 +84,7 @@ public class Rx_Observable_02_Subscribe {
 	}
 
 	public <T> void withConsumer() { 
+		CommonUtils.exampleStart("02) Subscribe With Consumer anonymous class"); 	
 		Observable<String> source = Observable.just("A", "B", "C");
 		source.subscribe(new Consumer<String>() {
 			@Override
@@ -97,6 +100,7 @@ public class Rx_Observable_02_Subscribe {
 	
 	
 	public <T> void withLambda() { 
+		CommonUtils.exampleStart("03) Subscribe With Lambda"); 	
 		Observable<String> source = Observable.just("A", "B", "C");
 		Disposable d = source.subscribe(
 			v -> System.out.println("onNext() : value - " + v), 
@@ -110,13 +114,8 @@ public class Rx_Observable_02_Subscribe {
 	
 	public static void main(String[] args) { 
 		Rx_Observable_02_Subscribe rx_subscribe = new Rx_Observable_02_Subscribe();
-		System.out.println("01.Subscribe With Observer anonymous class");
 		rx_subscribe.withObserver();
-		
-		System.out.println("02.Subscribe With Consumer anonymous class");
 		rx_subscribe.withConsumer();
-		
-		System.out.println("03.Subscribe With Lambda");
 		rx_subscribe.withLambda();
 	}
 
