@@ -16,7 +16,7 @@
       * 알림 이후 onNext 이벤트가 발생해선 안됨.
     - onError : Observable의 에러 발생 알림 후 종료 
 ==================================================================================================*/
-package com.eun1310434.java.rx.basic;
+package com.eun1310434.java.rx.observable;
 
 public class Rx_Obervable {
 

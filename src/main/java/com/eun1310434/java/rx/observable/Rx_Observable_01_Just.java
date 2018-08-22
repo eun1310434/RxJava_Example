@@ -17,7 +17,7 @@
     - public static <T> Observable<T> just(T item1,... T item10)
   
 ==================================================================================================*/
-package com.eun1310434.java.rx.basic;
+package com.eun1310434.java.rx.observable;
 
 import io.reactivex.Observable;
 

@@ -13,7 +13,7 @@
 ¡Û fromArray()
 -
 ==================================================================================================*/
-package com.eun1310434.java.rx.basic;
+package com.eun1310434.java.rx.observable;
 
 import java.util.stream.IntStream;
 

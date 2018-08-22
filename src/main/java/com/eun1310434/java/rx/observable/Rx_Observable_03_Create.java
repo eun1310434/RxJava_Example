@@ -23,7 +23,7 @@
 04) 硅拘(back pressure)阑 流立 贸府秦具 窃.
   
 ==================================================================================================*/
-package com.eun1310434.java.rx.basic;
+package com.eun1310434.java.rx.observable;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
