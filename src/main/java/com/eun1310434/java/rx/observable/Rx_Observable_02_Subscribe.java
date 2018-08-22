@@ -41,6 +41,8 @@
 package com.eun1310434.java.rx.observable;
 
 
+import com.eun1310434.java.rx.common.CommonUtils;
+
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -75,7 +77,8 @@ public class Rx_Observable_02_Subscribe {
 			}
 		});	
 		
-		System.out.println("isDisposed() : " + source.subscribe().isDisposed());
+		System.out.println("isDisposed() : " + source.subscribe().isDisposed()); 		
+		CommonUtils.exampleComplete();
 	}
 
 	public <T> void withConsumer() { 
@@ -88,7 +91,8 @@ public class Rx_Observable_02_Subscribe {
 			}
 		});	
 		
-		System.out.println("isDisposed() : " + source.subscribe().isDisposed());
+		System.out.println("isDisposed() : " + source.subscribe().isDisposed()); 		
+		CommonUtils.exampleComplete();
 	}
 	
 	
@@ -100,22 +104,20 @@ public class Rx_Observable_02_Subscribe {
 			() -> System.out.println("onComplete()")
 		);	
 		
-		System.out.println("isDisposed() : " + d.isDisposed());
+		System.out.println("isDisposed() : " + d.isDisposed()); 		
+		CommonUtils.exampleComplete();
 	}
 	
 	public static void main(String[] args) { 
 		Rx_Observable_02_Subscribe rx_subscribe = new Rx_Observable_02_Subscribe();
 		System.out.println("01.Subscribe With Observer anonymous class");
 		rx_subscribe.withObserver();
-		System.out.println("");
 		
 		System.out.println("02.Subscribe With Consumer anonymous class");
 		rx_subscribe.withConsumer();
-		System.out.println("");
 		
 		System.out.println("03.Subscribe With Lambda");
 		rx_subscribe.withLambda();
-		System.out.println("");
 	}
 
 }

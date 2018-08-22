@@ -19,6 +19,8 @@
 ==================================================================================================*/
 package com.eun1310434.java.rx.observable;
 
+import com.eun1310434.java.rx.common.CommonUtils;
+
 import io.reactivex.Observable;
 
 
@@ -26,7 +28,8 @@ public class Rx_Observable_01_Just {
 	public void emit() {
 		Observable
 		.just(1,2,3,4,5,6,7,8,9,10) //just() : Observable의 선언방식 
-		.subscribe(System.out::println); 	
+		.subscribe(System.out::println); 		
+		CommonUtils.exampleComplete();	
 	}
 
 	public static void main(String args[]) { 

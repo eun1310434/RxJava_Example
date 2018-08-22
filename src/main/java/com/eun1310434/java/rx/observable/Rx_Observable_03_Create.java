@@ -25,6 +25,8 @@
 ==================================================================================================*/
 package com.eun1310434.java.rx.observable;
 
+import com.eun1310434.java.rx.common.CommonUtils;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -42,7 +44,7 @@ public class Rx_Observable_03_Create {
 
 		source.subscribe(System.out::print); // method reference java 8
 		source.subscribe(data -> System.out.println("Result : " + data));
-		System.out.println("");		
+		CommonUtils.exampleComplete();
 	}
 	
 	
@@ -65,7 +67,7 @@ public class Rx_Observable_03_Create {
 				System.out.println("Result : " + data);
 			}
 		});
-		System.out.println("");
+		CommonUtils.exampleComplete();
 	}
 
 	public static void main(String[] args) {

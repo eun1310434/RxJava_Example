@@ -17,6 +17,8 @@ package com.eun1310434.java.rx.observable;
 
 import java.util.stream.IntStream;
 
+import com.eun1310434.java.rx.common.CommonUtils;
+
 import io.reactivex.Observable;
 
 public class Rx_Observable_04_FromArray {
@@ -25,7 +27,7 @@ public class Rx_Observable_04_FromArray {
 		Integer[] arr = {100, 200, 300}; // Declaration Integer array
 		Observable<Integer> source = Observable.fromArray(arr);
 		source.subscribe(System.out::println);// method reference java 8
-		System.out.println("");
+		CommonUtils.exampleComplete();
 	}
 	
 	public void intArray() {
@@ -33,7 +35,7 @@ public class Rx_Observable_04_FromArray {
 		int[] intArray = {400, 500, 600}; // Declaration int array
 		Observable<Integer> source = Observable.fromArray(toIntegerArray(intArray));
 		source.subscribe(System.out::println);// method reference java 8
-		System.out.println("");
+		CommonUtils.exampleComplete();
 	}
 	
 	private static Integer[] toIntegerArray(int[] intArray) { 
