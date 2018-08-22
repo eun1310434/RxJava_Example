@@ -46,7 +46,7 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
-public class Rx_Observable_Subscribe {
+public class Rx_Observable_02_Subscribe {
 	public <T> void withObserver() { 
 		Observable<String> source = Observable.just("A", "B", "C");
 		source.subscribe(new Observer<String>() {
@@ -104,7 +104,7 @@ public class Rx_Observable_Subscribe {
 	}
 	
 	public static void main(String[] args) { 
-		Rx_Observable_Subscribe rx_subscribe = new Rx_Observable_Subscribe();
+		Rx_Observable_02_Subscribe rx_subscribe = new Rx_Observable_02_Subscribe();
 		System.out.println("01.Subscribe With Observer anonymous class");
 		rx_subscribe.withObserver();
 		System.out.println("");

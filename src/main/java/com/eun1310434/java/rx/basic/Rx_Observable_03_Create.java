@@ -30,7 +30,7 @@ import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.functions.Consumer;
 
-public class Rx_Observable_Create {
+public class Rx_Observable_03_Create {
 	public void lambda() {
 		System.out.println("01) Lambda");
 		Observable<Integer> source = Observable.create((ObservableEmitter<Integer> emitter) -> {
@@ -69,7 +69,7 @@ public class Rx_Observable_Create {
 	}
 
 	public static void main(String[] args) {
-		Rx_Observable_Create create = new Rx_Observable_Create();
+		Rx_Observable_03_Create create = new Rx_Observable_03_Create();
 		create.lambda();// <- Simple
 		create.anonymous();
 	}

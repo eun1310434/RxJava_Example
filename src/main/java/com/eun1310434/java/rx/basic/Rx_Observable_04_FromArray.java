@@ -19,7 +19,7 @@ import java.util.stream.IntStream;
 
 import io.reactivex.Observable;
 
-public class Rx_Observable_FromArray {
+public class Rx_Observable_04_FromArray {
 	public void integerArray() { 
 		System.out.println("01) integerArray");
 		Integer[] arr = {100, 200, 300}; // Declaration Integer array
@@ -42,7 +42,7 @@ public class Rx_Observable_FromArray {
 	}
 	
 	public static void main(String[] args){ 
-		Rx_Observable_FromArray test = new Rx_Observable_FromArray();
+		Rx_Observable_04_FromArray test = new Rx_Observable_04_FromArray();
 		test.integerArray();
 		test.intArray();
 	}	
