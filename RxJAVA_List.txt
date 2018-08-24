@@ -25,12 +25,12 @@
 ● 2.1.6 fromCallable() 함수 
 ● 2.1.7 fromFuture() 함수 
 ● 2.1.8 fromPubilsher() 함수 
-○ 2.2.0 Single 클래스 
-○ 2.2.1 just() 함수 
-○ 2.2.2 Observable에서 Single 클래스 사용 
-○ 2.2.3 Single 클래스의 올바른 사용 방법 
-○ 2.3.0 Maybe 클래스 
-○ 2.4.0 뜨거운 Observable 
+● 2.2.0 Single 클래스 
+● 2.2.1 just() 함수 
+● 2.2.2 Observable에서 Single 클래스 사용 
+● 2.2.3 Single 클래스의 올바른 사용 방법 
+● 2.3.0 Maybe 클래스 
+● 2.4.0 뜨거운 Observable 
 ○ 2.5.0 Subject 클래스 
 ○ 2.5.1 AsyncSubject 클래스 
 ○ 2.5.2 BehaviorSubject 클래스 
