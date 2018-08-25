@@ -36,9 +36,9 @@
 ● 2.5.2 BehaviorSubject 클래스 
 ● 2.5.3 PublishSubject 클래스 
 ● 2.5.4 ReplaySubject 클래스 
-○ 2.6.0 ConnectableObservable 클래스 
+● 2.6.0 ConnectableObservable 클래스 
 
-■ Chapter 3
+■ Chapter 3 - Sun.26.08.2018
 ○ 3.0.0 리액티브 연산자 입문 
 ○ 3.1.0 map() 함수 
 ○ 3.2.0 flatMap() 함수 
@@ -48,7 +48,7 @@
 ○ 3.4.1 데이터 쿼리하기 
 ○ 3.5.0 마치며 
 
-■ Chapter 4
+■ Chapter 4 - Mon.26.08.2018 ~ Wed.28.08.2018 
 ○ 4.0.0 리액티브 연산자의 활용 
 ○ 4.1.0 생성 연산자 
 ○ 4.1.1 interval() 함수 
