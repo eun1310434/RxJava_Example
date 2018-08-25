@@ -10,18 +10,30 @@
 ○ 
    
 □ Study
+○ Data Source
+- Observable
+- Single
+- Maybe
+- Subject
+- Completable
+
+○ Data Receiver
+- Subscriber : Observable과 연결할 때는 "subscribe()" Calling. 
+- Observer : RxJava는 observer pattern을 implement. 
+- Consumer : RxJava 2에서는 Comsumer를 Parameter로 사용
+
 ○ create()
 - Observable<T> create(ObservableInSubscribe<T> source)
 - public interface ObservableOnSubscribe<T>{
 	      void subscribe(ObservableEmitter<T> e) throws Exception;
   }
+  
 ○ Observable.create()를 사용할 때 주의 할 점.
 01) Observable이 구독 해지(dispose)되었을 때 등록된 콜백을 모두 해제해야 함.
      * 잠재적 메모리 누수(memory leak) 방지
 02) 구독자가 구독하는 동안에만 onNext와 onComplete 이벤트를 호출해야 함.
 03) 에러가 발생했을 때는 오직 onError이벤트로만 에러를 전달해야 함.
 04) 배압(back pressure)을 직접 처리해야 함.
-  
 ==================================================================================================*/
 package com.eun1310434.java.rx.observable;
 

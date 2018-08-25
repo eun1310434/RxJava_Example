@@ -10,6 +10,18 @@
 ○ 
    
 □ Study
+○ Data Source
+- Observable
+- Single
+- Maybe
+- Subject
+- Completable
+
+○ Data Receiver
+- Subscriber : Observable과 연결할 때는 "subscribe()" Calling. 
+- Observer : RxJava는 observer pattern을 implement. 
+- Consumer : RxJava 2에서는 Comsumer를 Parameter로 사용
+
 ○ Single Class
 - Observable 클래스는 데이터를 무한하게 발행할 수 있지만 Single 클래스는 오직 1개의 데이터만 발행하도록 함
 - 데이터 하나가 발행과 동시에 종료(onSuccess)

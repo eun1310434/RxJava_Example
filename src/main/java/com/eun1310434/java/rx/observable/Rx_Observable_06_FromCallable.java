@@ -10,9 +10,22 @@
 ○ 
    
 □ Study
+○ Data Source
+- Observable
+- Single
+- Maybe
+- Subject
+- Completable
+
+○ Data Receiver
+- Subscriber : Observable과 연결할 때는 "subscribe()" Calling. 
+- Observer : RxJava는 observer pattern을 implement. 
+- Consumer : RxJava 2에서는 Comsumer를 Parameter로 사용
+
 ○ fromCallable()
--  asynchronism 계산을 위해 사용
+- asynchronism 계산을 위해 사용
 - Executor 인터페이스의 인자로 활용되기 때문에 잠재적을 다른 스레드에서 실행되는 것을 의미
+
 ○ JAVA 5 - API : Callable
 - 비동기 실행 후 결과를 반환하는 call()메서드를 정의
 public interface Callable<V>{
@@ -33,13 +46,14 @@ import io.reactivex.Observable;
 public class Rx_Observable_06_FromCallable {
 	public void lambda() { 
 		CommonUtils.exampleStart("01) lambda");
+		
 		Callable<String> callable = () -> { 
 			Thread.sleep(1000);
 			return "After 1 Sec : Hello Callable-lambda";
 		};
-		
 		Observable<String> source = Observable.fromCallable(callable);
 		source.subscribe(System.out::println);
+		
 		CommonUtils.exampleComplete();
 	}
 	

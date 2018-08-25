@@ -31,11 +31,11 @@
 ● 2.2.3 Single 클래스의 올바른 사용 방법 
 ● 2.3.0 Maybe 클래스 
 ● 2.4.0 뜨거운 Observable 
-○ 2.5.0 Subject 클래스 
-○ 2.5.1 AsyncSubject 클래스 
-○ 2.5.2 BehaviorSubject 클래스 
-○ 2.5.3 PublishSubject 클래스 
-○ 2.5.4 ReplaySubject 클래스 
+● 2.5.0 Subject 클래스 
+● 2.5.1 AsyncSubject 클래스 
+● 2.5.2 BehaviorSubject 클래스 
+● 2.5.3 PublishSubject 클래스 
+● 2.5.4 ReplaySubject 클래스 
 ○ 2.6.0 ConnectableObservable 클래스 
 
 ■ Chapter 3

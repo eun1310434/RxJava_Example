@@ -10,8 +10,20 @@
 ○ 
    
 □ Study
-○ fromCallable()
--  asynchronism 계산을 위해 사용
+○ Data Source
+- Observable
+- Single
+- Maybe
+- Subject
+- Completable
+
+○ Data Receiver
+- Subscriber : Observable과 연결할 때는 "subscribe()" Calling. 
+- Observer : RxJava는 observer pattern을 implement. 
+- Consumer : RxJava 2에서는 Comsumer를 Parameter로 사용
+
+○ fromFuture()
+- asynchronism 계산을 위해 사용
 - Executor Interface를 implementation한 Class에 Callable Object를 Parameter로 input Future Object를 return.
 - get() method를 calling하면 Callable object에서 implementation한 계산 결과가 나올 때 까지 Blocking됨.
 ==================================================================================================*/
@@ -28,6 +40,7 @@ import io.reactivex.Observable;
 public class Rx_Observable_07_FromFuture {
 	public void lambda() {
 		CommonUtils.exampleStart("01) lambda");
+		
 		Future<String> future = Executors.newSingleThreadExecutor().submit(() -> {
 			Thread.sleep(1000);
 			return "After 1 Sec : Hello Future-lambda";
@@ -36,7 +49,6 @@ public class Rx_Observable_07_FromFuture {
 		// get() method를 calling하면 Callable object에서 implementation한 계산 결과가 나올 때 까지 Blocking됨
 
 		Observable<String> source = Observable.fromFuture(future);
-
 		source.subscribe(System.out::println);
 		CommonUtils.exampleComplete();
 	}

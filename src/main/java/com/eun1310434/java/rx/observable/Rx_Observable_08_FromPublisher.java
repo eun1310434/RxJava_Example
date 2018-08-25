@@ -10,6 +10,18 @@
 ○ 
    
 □ Study
+○ Data Source
+- Observable
+- Single
+- Maybe
+- Subject
+- Completable
+
+○ Data Receiver
+- Subscriber : Observable과 연결할 때는 "subscribe()" Calling. 
+- Observer : RxJava는 observer pattern을 implement. 
+- Consumer : RxJava 2에서는 Comsumer를 Parameter로 사용
+
 ○ fromPublisher()
 - Publisher는 JAVA9의 표준인 Flow API의 일부
 - Publisher Interface는 기존의 RxJava와 비교하면 패키지 이름이 다름

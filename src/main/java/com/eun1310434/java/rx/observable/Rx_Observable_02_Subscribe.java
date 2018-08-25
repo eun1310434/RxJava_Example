@@ -10,33 +10,45 @@
   ○ 
    
 □ Study
-  ○ Definition of "subscribe()"
-    - just() 등의 팩토리 함수로 데이터의 흐름을 정의한 뒤 호출하여 데이터 발행
+○ Data Source
+- Observable
+- Single
+- Maybe
+- Subject
+- Completable
 
-  ○ Types of "subscribe()"
-       01) Disposable subscribe()
-            - Occured  "onError()" Event and Throw "OnErrorNotImplementedException()"
-            - Pass over the event : "onNext()" and a "onComplete()"
-       02) Disposable subscribe(Consumer<? super T> onNext)
-            - Occured  "onError()" Event and Throw "OnErrorNotImplementedException()"
-            - Handle "onNext()" Event 
-            - Pass over the event : "onComplete()"
-       03) Disposable subscribe(Consumer<? super T> onNext, Consumer<? super java.lang.Throwable> onError)
-            - Handle "onError()" Event
-            - Handle "onNext()" Event 
-            - Pass over the event : "onComplete()"
-       04) Disposable subscribe(Consumer<? super T> onNext, Consumer<? super java.lang.Throwable> onError, Action onComplete)
-            - Handle "onError()" Event
-            - Handle "onNext()" Event 
-            - Handle "onComplete()" Event 
+○ Data Receiver
+- Subscriber : Observable과 연결할 때는 "subscribe()" Calling. 
+- Observer : RxJava는 observer pattern을 implement. 
+- Consumer : RxJava 2에서는 Comsumer를 Parameter로 사용
 
-  ○ Definition of "Disposable" Interface
-      01) void dispose()
-          - Observable에게 더 이상 데이터를 발행하지 않도록 구독을 해지하는 함수
-          - 만약 Observable::onComplete()발행 시 별도로 Disposable::dipose()를 발행할 필요 없으며 자동적으로 구독 해지 됨.
-            * Observable::onComplete -> Disposable::dipose -> 구독 해지
-      02) booelan isDisposed()
-          - 구독 확인 함수
+○ Definition of "subscribe()"
+- just() 등의 팩토리 함수로 데이터의 흐름을 정의한 뒤 호출하여 데이터 발행
+
+○ Types of "subscribe()"
+01) Disposable subscribe()
+- Occured  "onError()" Event and Throw "OnErrorNotImplementedException()"
+- Pass over the event : "onNext()" and a "onComplete()"
+02) Disposable subscribe(Consumer<? super T> onNext)
+- Occured  "onError()" Event and Throw "OnErrorNotImplementedException()"
+- Handle "onNext()" Event 
+- Pass over the event : "onComplete()"
+03) Disposable subscribe(Consumer<? super T> onNext, Consumer<? super java.lang.Throwable> onError)
+- Handle "onError()" Event
+- Handle "onNext()" Event 
+- Pass over the event : "onComplete()"
+04) Disposable subscribe(Consumer<? super T> onNext, Consumer<? super java.lang.Throwable> onError, Action onComplete)
+- Handle "onError()" Event
+- Handle "onNext()" Event 
+- Handle "onComplete()" Event 
+
+○ Definition of "Disposable" Interface
+01) void dispose()
+- Observable에게 더 이상 데이터를 발행하지 않도록 구독을 해지하는 함수
+- 만약 Observable::onComplete()발행 시 별도로 Disposable::dipose()를 발행할 필요 없으며 자동적으로 구독 해지 됨.
+* Observable::onComplete -> Disposable::dipose -> 구독 해지
+02) booelan isDisposed()
+- 구독 확인 함수
 ==================================================================================================*/
 package com.eun1310434.java.rx.observable;
 
