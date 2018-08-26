@@ -1,0 +1,86 @@
+□ Study
+○ Operators By Category
+- Creating(생성) : Operators that originate new Observables.
+01) create() : create an Observable from scratch by calling observer methods programmatically
+02) defer() : do not create the Observable until the observer subscribes, and create a fresh Observable for each observer
+03) empty/Never/Throw() : create Observables that have very precise and limited behavior
+04) From() : convert some other object or data structure into an Observable
+      * fromArray(), fromIterable(), fromCallable(), fromFuture(), fromPublisher()
+05) interval() : create an Observable that emits a sequence of integers spaced by a particular time interval
+06) just() : convert an object or a set of objects into an Observable that emits that or those objects
+07) range() : create an Observable that emits a range of sequential integers
+08) repeat() : create an Observable that emits a particular item or sequence of items repeatedly
+09) start() : create an Observable that emits the return value of a function
+10) timer() : create an Observable that emits a single item after a given delay
+
+- Transforming(변환) : Operators that transform items that are emitted by an Observable.
+01) buffer() : periodically gather items from an Observable into bundles and emit these bundles rather than emitting the items one at a time
+02) flatMap() : transform the items emitted by an Observable into Observables, then flatten the emissions from those into a single Observable
+03) groupBy() : divide an Observable into a set of Observables that each emit a different group of items from the original Observable, organized by key
+04) map() : transform the items emitted by an Observable by applying a function to each item
+05) scan() : apply a function to each item emitted by an Observable, sequentially, and emit each successive value
+06) Window() : periodically subdivide items from an Observable into Observable windows and emit these windows rather than emitting the items one at a time
+
+- Filtering(필터) : Operators that selectively emit items from a source Observable.
+01) debounce() : only emit an item from an Observable if a particular timespan has passed without it emitting another item
+02) distinct() : suppress duplicate items emitted by an Observable
+03) elementAt() : emit only item n emitted by an Observable
+04) filter() : emit only those items from an Observable that pass a predicate test
+05) first() : emit only the first item, or the first item that meets a condition, from an Observable
+06) ignoreElements() : do not emit any items from an Observable but mirror its termination notification
+07) last() : emit only the last item emitted by an Observable
+08) sample() : emit the most recent item emitted by an Observable within periodic time intervals
+09) skip() : suppress the first n items emitted by an Observable
+10) skipLast() : suppress the last n items emitted by an Observable
+11) take() : emit only the first n items emitted by an Observable
+12) takeLast() : emit only the last n items emitted by an Observable
+
+- Combining(합성) : Operators that work with multiple source Observables to create a single Observable
+01) and/then/when() : combine sets of items emitted by two or more Observables by means of Pattern and Plan intermediaries
+02) combineLatest() : when an item is emitted by either of two Observables, combine the latest item emitted by each Observable via a specified function and emit items based on the results of this function
+03) join() : combine items emitted by two Observables whenever an item from one Observable is emitted during a time window defined according to an item emitted by the other Observable
+04) merge() : combine multiple Observables into one by merging their emissions
+05) startWith() : emit a specified sequence of items before beginning to emit the items from the source Observable
+06) switch() : convert an Observable that emits Observables into a single Observable that emits the items emitted by the most-recently-emitted of those Observables
+07) zip() : combine the emissions of multiple Observables together via a specified function and emit single items for each combination based on the results of this function
+
+
+- Error Handling(오류 처리) : Operators that help to recover from error notifications from an Observable
+01) catch() : recover from an onError notification by continuing the sequence without error
+02) retry() : if a source Observable sends an onError notification, resubscribe to it in the hopes that it will complete without error
+
+- Utility(유틸리티) : A toolbox of useful Operators for working with Observables
+01) delay() : shift the emissions from an Observable forward in time by a particular amount
+02) do() : register an action to take upon a variety of Observable lifecycle events
+03) materialize/dematerialize() : represent both the items emitted and the notifications sent as emitted items, or reverse this process
+04) observeOn() : specify the scheduler on which an observer will observe this Observable
+05) serialize() : force an Observable to make serialized calls and to be well-behaved
+06) subscribe() : operate upon the emissions and notifications from an Observable
+07) subscribeOn() : specify the scheduler an Observable should use when it is subscribed to
+08) timeInterval() : convert an Observable that emits items into one that emits indications of the amount of time elapsed between those emissions
+09) timeout() : mirror the source Observable, but issue an error notification if a particular period of time elapses without any emitted items
+10) timestamp() : attach a timestamp to each item emitted by an Observable
+11) using() : create a disposable resource that has the same lifespan as the Observable
+
+- Conditional(조건) : Operators that evaluate one or more Observables or items emitted by Observables
+01) all() : determine whether all items emitted by an Observable meet some criteria
+02) amb() : given two or more source Observables, emit all of the items from only the first of these Observables to emit an item
+03) contains() : determine whether an Observable emits a particular item or not
+04) defaultIfEmpty() : emit items from the source Observable, or a default item if the source Observable emits nothing
+05) sequenceEqual() : determine whether two Observables emit the same sequence of items
+06) skipUntil() : discard items emitted by an Observable until a second Observable emits an item
+07) skipWhile() : discard items emitted by an Observable until a specified condition becomes false
+08) takeUntil() : discard items emitted by an Observable after a second Observable emits an item or terminates
+09) takeWhile() : discard items emitted by an Observable after a specified condition becomes false
+
+- Mathematical and Aggregate(수학과 집합형) : Operators that operate on the entire sequence of items emitted by an Observable
+01) average() : calculates the average of numbers emitted by an Observable and emits this average
+02) concat() : emit the emissions from two or more Observables without interleaving them
+03) count() : count the number of items emitted by the source Observable and emit only this value
+04) max() : determine, and emit, the maximum-valued item emitted by an Observable
+05) min() : determine, and emit, the minimum-valued item emitted by an Observable
+06) reduce() : apply a function to each item emitted by an Observable, sequentially, and emit the final value
+07) sum() : calculate the sum of numbers emitted by an Observable and emit this sum
+
+- Backpressure(배압)
+backpressure operators : strategies for coping with Observables that produce items more rapidly than their observers consume them

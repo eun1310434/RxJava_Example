@@ -25,7 +25,7 @@
 ¡Û fromArray()
 -
 ==================================================================================================*/
-package com.eun1310434.java.rx.observable;
+package com.eun1310434.java.rx.observables.creating;
 
 import java.util.stream.IntStream;
 
@@ -33,7 +33,7 @@ import com.eun1310434.java.rx.common.CommonUtils;
 
 import io.reactivex.Observable;
 
-public class Rx_Observable_04_FromArray {
+public class Rx_04_01_FromArray {
 	public void integerArray() { 
 		CommonUtils.exampleStart("01) integerArray");
 		Integer[] arr = {100, 200, 300}; // Declaration Integer array
@@ -56,7 +56,7 @@ public class Rx_Observable_04_FromArray {
 	}
 	
 	public static void main(String[] args){ 
-		Rx_Observable_04_FromArray test = new Rx_Observable_04_FromArray();
+		Rx_04_01_FromArray test = new Rx_04_01_FromArray();
 		test.integerArray();
 		test.intArray();
 	}	

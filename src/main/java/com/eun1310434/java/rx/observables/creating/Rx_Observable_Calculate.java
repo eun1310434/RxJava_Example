@@ -13,7 +13,7 @@
   ¡Û
   
 ==================================================================================================*/
-package com.eun1310434.java.rx.observable;
+package com.eun1310434.java.rx.observables.creating;
 
 import io.reactivex.Observable;
 

@@ -37,7 +37,7 @@
 - Object를 create 하려면 publish() method를 Calling 함.
 - subscribe() 가 아닌 connect()를 호출하는 시점부터 Data publish가 이루어짐.
 ==================================================================================================*/
-package com.eun1310434.java.rx.connetableobservable;
+package com.eun1310434.java.rx.observables.connectableobservable;
 import static com.eun1310434.java.rx.common.Shape.*;
 
 import com.eun1310434.java.rx.common.CommonUtils;
@@ -48,7 +48,7 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Observable;
 import io.reactivex.observables.ConnectableObservable;
 
-public class Rx_ConnectableObservable_01_Connect implements RxTest{
+public class Rx_01_00_Connect implements RxTest{
 
 	@Override
 	public void marbleDiagram() { 
@@ -78,7 +78,7 @@ public class Rx_ConnectableObservable_01_Connect implements RxTest{
 	}
 	
 	public static void main(String[] args) { 
-		Rx_ConnectableObservable_01_Connect demo = new Rx_ConnectableObservable_01_Connect();
+		Rx_01_00_Connect demo = new Rx_01_00_Connect();
 		demo.marbleDiagram();
 	}
 

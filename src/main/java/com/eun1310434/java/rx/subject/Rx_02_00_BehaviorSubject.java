@@ -58,7 +58,7 @@ import com.eun1310434.java.rx.common.CommonUtils;
 
 import io.reactivex.subjects.BehaviorSubject;
 
-public class Rx_Subject_02_BehaviorSubject {
+public class Rx_02_00_BehaviorSubject {
 	
 	public void behaviorSubjectTest() { 
 		// 1. BehaviorSubject
@@ -76,7 +76,7 @@ public class Rx_Subject_02_BehaviorSubject {
 	}
 	
 	public static void main(String[] args) { 
-		Rx_Subject_02_BehaviorSubject test = new Rx_Subject_02_BehaviorSubject();
+		Rx_02_00_BehaviorSubject test = new Rx_02_00_BehaviorSubject();
 		test.behaviorSubjectTest();
 	}
 

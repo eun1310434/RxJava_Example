@@ -50,7 +50,7 @@
 02) booelan isDisposed()
 - 구독 확인 함수
 ==================================================================================================*/
-package com.eun1310434.java.rx.observable;
+package com.eun1310434.java.rx.observables.utility;
 
 
 import com.eun1310434.java.rx.common.CommonUtils;
@@ -60,7 +60,7 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
-public class Rx_Observable_02_Subscribe {
+public class Rx_06_Subscribe {
 	public <T> void withObserver() { 
 		CommonUtils.exampleStart("01) Subscribe With Observer anonymous class"); 	
 		
@@ -125,7 +125,7 @@ public class Rx_Observable_02_Subscribe {
 	}
 	
 	public static void main(String[] args) { 
-		Rx_Observable_02_Subscribe rx_subscribe = new Rx_Observable_02_Subscribe();
+		Rx_06_Subscribe rx_subscribe = new Rx_06_Subscribe();
 		rx_subscribe.withObserver();
 		rx_subscribe.withConsumer();
 		rx_subscribe.withLambda();

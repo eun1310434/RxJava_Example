@@ -30,7 +30,7 @@
 - Iterable<E> 인터페이스를 구현하지 않음
 - from() 계열 함수는 존재할 수 없음.
 ==================================================================================================*/
-package com.eun1310434.java.rx.observable;
+package com.eun1310434.java.rx.observables.creating;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -41,7 +41,7 @@ import java.util.concurrent.BlockingQueue;
 import com.eun1310434.java.rx.common.CommonUtils;
 import io.reactivex.Observable;
 
-public class Rx_Observable_05_FromIterable {
+public class Rx_04_02_FromIterable {
 	public void listExample() {
 		CommonUtils.exampleStart("01) listExample");
 		List<String> names = new ArrayList<>();
@@ -95,7 +95,7 @@ public class Rx_Observable_05_FromIterable {
 
 
 	public static void main(String[] args) {
-		Rx_Observable_05_FromIterable test = new Rx_Observable_05_FromIterable();
+		Rx_04_02_FromIterable test = new Rx_04_02_FromIterable();
 		test.listExample();
 		test.setExample();
 		test.blockingQueueExample();

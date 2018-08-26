@@ -57,7 +57,7 @@ import static com.eun1310434.java.rx.common.Shape.*;
 import io.reactivex.Observable;
 import io.reactivex.subjects.AsyncSubject;
 
-public class Rx_Subject_01_AsyncSubjectClass {
+public class Rx_01_00_AsyncSubjectClass {
 
 	public void marbleDiagram() {
 		// 1. 일반적인 Subject 선언
@@ -114,7 +114,7 @@ public class Rx_Subject_01_AsyncSubjectClass {
 	}
 
 	public static void main(String[] args) {
-		Rx_Subject_01_AsyncSubjectClass test = new Rx_Subject_01_AsyncSubjectClass();
+		Rx_01_00_AsyncSubjectClass test = new Rx_01_00_AsyncSubjectClass();
 		test.marbleDiagram();
 		test.asSubscriber();
 		test.afterComplete();

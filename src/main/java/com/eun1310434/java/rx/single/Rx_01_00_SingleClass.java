@@ -29,14 +29,14 @@
 - Single 클래스의 라이프 사이클 함수는 onSuccess(T value)함수와 onError()함수로 구성
 ==================================================================================================*/
 
-package com.eun1310434.java.rx.observable;
+package com.eun1310434.java.rx.single;
 
 import com.eun1310434.java.rx.common.CommonUtils;
 
 import io.reactivex.Observable;
 import io.reactivex.Single;
 
-public class Rx_Observable_09_SingleClass {
+public class Rx_01_00_SingleClass {
 	public void just() {
 		// 1. 일반적인 Single 선언
 		CommonUtils.exampleStart("01) just()");
@@ -107,7 +107,7 @@ public class Rx_Observable_09_SingleClass {
 	}
 
 	public static void main(String[] args) {
-		Rx_Observable_09_SingleClass test = new Rx_Observable_09_SingleClass();
+		Rx_01_00_SingleClass test = new Rx_01_00_SingleClass();
 		test.just();
 		test.fromObservable();
 		test.single();

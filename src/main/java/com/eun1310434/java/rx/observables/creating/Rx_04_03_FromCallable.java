@@ -35,7 +35,7 @@ public interface Callable<V>{
 }
 - Runnable의 인터페이스 처럼 메서드가 1개이고 인자가 없다는 점에서 동일 하나 실행결과를 리턴하는 점에서 차이 있음
 ==================================================================================================*/
-package com.eun1310434.java.rx.observable;
+package com.eun1310434.java.rx.observables.creating;
 
 import java.util.concurrent.Callable;
 
@@ -43,7 +43,7 @@ import com.eun1310434.java.rx.common.CommonUtils;
 
 import io.reactivex.Observable;
 
-public class Rx_Observable_06_FromCallable {
+public class Rx_04_03_FromCallable {
 	public void lambda() { 
 		CommonUtils.exampleStart("01) lambda");
 		
@@ -73,7 +73,7 @@ public class Rx_Observable_06_FromCallable {
 	}
 	
 	public static void main(String[] args) { 
-		Rx_Observable_06_FromCallable test = new Rx_Observable_06_FromCallable();
+		Rx_04_03_FromCallable test = new Rx_04_03_FromCallable();
 		test.lambda();
 		test.anonymous();
 	}

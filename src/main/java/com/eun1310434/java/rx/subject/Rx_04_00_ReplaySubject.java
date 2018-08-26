@@ -46,8 +46,9 @@
 07) SingleSubject
 08) UnicastSubject
 
-○ PublishSubject
-- 오직 해당 시간에 발생한 데이터를 그대로 구독자에게 전달 받음
+○ ReplaySubject
+- Subscriber가 생기면 데이터의 처음부터 끝까지 발행
+- Attention Memory leak
 ==================================================================================================*/
 package com.eun1310434.java.rx.subject;
 
@@ -55,26 +56,26 @@ import static com.eun1310434.java.rx.common.Shape.*;
 
 import com.eun1310434.java.rx.common.CommonUtils;
 
-import io.reactivex.subjects.PublishSubject;
+import io.reactivex.subjects.ReplaySubject;
 
-public class Rx_Subject_03_PublishSubject {
-	public void publishSubjectTest() { 
-		// 1. PublishSubject
-		CommonUtils.exampleStart("01) PublishSubjectTest");
-		PublishSubject<String> subject = PublishSubject.create();
+public class Rx_04_00_ReplaySubject {
+	public void replaySubject() {  
+		// 1. ReplaySubject
+		CommonUtils.exampleStart("01) ReplaySubjectTest");
+		ReplaySubject<String> subject = ReplaySubject.create();
 		subject.subscribe(data -> System.out.println("Subscriber #1 => " + data));// Subscriber - 1
 		subject.onNext(RED);
 		subject.onNext(GREEN);
 		subject.subscribe(data -> System.out.println("Subscriber #2 => " + data));// Subscriber - 2
 		subject.onNext(BLUE);
 		subject.onNext(PUPPLE);
-		subject.subscribe(data -> System.out.println("Subscriber #3 => " + data)); // Subscriber - 3
+		subject.subscribe(data -> System.out.println("Subscriber #3 => " + data));// Subscriber - 3
 		subject.onComplete();
 		CommonUtils.exampleComplete();
 	}
 	
 	public static void main(String[] args) { 
-		Rx_Subject_03_PublishSubject test = new Rx_Subject_03_PublishSubject();
-		test.publishSubjectTest();
+		Rx_04_00_ReplaySubject test = new Rx_04_00_ReplaySubject();
+		test.replaySubject();
 	}
 }

@@ -35,7 +35,7 @@
 03) 에러가 발생했을 때는 오직 onError이벤트로만 에러를 전달해야 함.
 04) 배압(back pressure)을 직접 처리해야 함.
 ==================================================================================================*/
-package com.eun1310434.java.rx.observable;
+package com.eun1310434.java.rx.observables.creating;
 
 import com.eun1310434.java.rx.common.CommonUtils;
 
@@ -44,7 +44,7 @@ import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.functions.Consumer;
 
-public class Rx_Observable_03_Create {
+public class Rx_01_00_Create {
 	public void lambda() {
 		CommonUtils.exampleStart("01) Lambda");
 		Observable<Integer> source = Observable.create((ObservableEmitter<Integer> emitter) -> {
@@ -83,7 +83,7 @@ public class Rx_Observable_03_Create {
 	}
 
 	public static void main(String[] args) {
-		Rx_Observable_03_Create create = new Rx_Observable_03_Create();
+		Rx_01_00_Create create = new Rx_01_00_Create();
 		create.lambda();// <- Simple
 		create.anonymous();
 	}

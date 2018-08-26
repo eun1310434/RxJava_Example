@@ -28,14 +28,14 @@
   *단 같은 타입이어야 함
 - public static <T> Observable<T> just(T item1,... T item10)  
 ==================================================================================================*/
-package com.eun1310434.java.rx.observable;
+package com.eun1310434.java.rx.observables.creating;
 
 import com.eun1310434.java.rx.common.CommonUtils;
 
 import io.reactivex.Observable;
 
 
-public class Rx_Observable_01_Just {
+public class Rx_06_00_Just {
 	public void emit() {
 		CommonUtils.exampleStart("01) emit"); 	
 		Observable
@@ -45,7 +45,7 @@ public class Rx_Observable_01_Just {
 	}
 
 	public static void main(String args[]) { 
-		Rx_Observable_01_Just just = new Rx_Observable_01_Just();
+		Rx_06_00_Just just = new Rx_06_00_Just();
 		just.emit();
 	}	
 }

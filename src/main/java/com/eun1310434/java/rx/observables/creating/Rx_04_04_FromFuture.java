@@ -27,7 +27,7 @@
 - Executor Interface를 implementation한 Class에 Callable Object를 Parameter로 input Future Object를 return.
 - get() method를 calling하면 Callable object에서 implementation한 계산 결과가 나올 때 까지 Blocking됨.
 ==================================================================================================*/
-package com.eun1310434.java.rx.observable;
+package com.eun1310434.java.rx.observables.creating;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
@@ -37,7 +37,7 @@ import com.eun1310434.java.rx.common.CommonUtils;
 
 import io.reactivex.Observable;
 
-public class Rx_Observable_07_FromFuture {
+public class Rx_04_04_FromFuture {
 	public void lambda() {
 		CommonUtils.exampleStart("01) lambda");
 		
@@ -74,7 +74,7 @@ public class Rx_Observable_07_FromFuture {
 	}
 
 	public static void main(String[] args) {
-		Rx_Observable_07_FromFuture test = new Rx_Observable_07_FromFuture();
+		Rx_04_04_FromFuture test = new Rx_04_04_FromFuture();
 		test.lambda();
 		test.anonymous();
 	}

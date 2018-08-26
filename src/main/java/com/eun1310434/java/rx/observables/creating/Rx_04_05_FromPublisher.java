@@ -29,7 +29,7 @@
   Publisher -> org.reactivestreams
 - Observable.create()와 만찬가지로 onNext()와 onComplete() Method를 calling.
 ==================================================================================================*/
-package com.eun1310434.java.rx.observable;
+package com.eun1310434.java.rx.observables.creating;
 
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
@@ -38,7 +38,7 @@ import com.eun1310434.java.rx.common.CommonUtils;
 
 import io.reactivex.Observable;
 
-public class Rx_Observable_08_FromPublisher {
+public class Rx_04_05_FromPublisher {
 	public void lambda() { 
 		CommonUtils.exampleStart("01) lambda");
 		Publisher<String> publisher = (Subscriber<? super String> s) -> { 
@@ -69,7 +69,7 @@ public class Rx_Observable_08_FromPublisher {
 	}
 	
 	public static void main(String[] args) { 
-		Rx_Observable_08_FromPublisher test = new Rx_Observable_08_FromPublisher();
+		Rx_04_05_FromPublisher test = new Rx_04_05_FromPublisher();
 		test.lambda();
 		test.anonymous();
 	}
