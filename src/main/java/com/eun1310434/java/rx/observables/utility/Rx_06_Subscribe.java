@@ -53,6 +53,8 @@
 package com.eun1310434.java.rx.observables.utility;
 
 
+import java.util.Scanner;
+
 import com.eun1310434.java.rx.common.CommonUtils;
 
 import io.reactivex.Observable;
@@ -123,12 +125,27 @@ public class Rx_06_Subscribe {
 		System.out.println("isDisposed() : " + d.isDisposed()); 		
 		CommonUtils.exampleComplete();
 	}
+
+	public void multiplicationTable() { 
+		CommonUtils.exampleStart("04) multiplicationTable"); 	
+		
+		Scanner in = new Scanner(System.in);
+		System.out.println("Multiplication Table Input:");
+		int dan = Integer.parseInt(in.nextLine());		
+		
+		Observable<Integer> source = Observable.range(1, 9);
+		source.subscribe(row -> System.out.println(dan + " * " + row + " = " + dan * row)); 
+		in.close();	
+		
+		CommonUtils.exampleComplete();
+	}					
 	
 	public static void main(String[] args) { 
 		Rx_06_Subscribe rx_subscribe = new Rx_06_Subscribe();
 		rx_subscribe.withObserver();
 		rx_subscribe.withConsumer();
 		rx_subscribe.withLambda();
+		rx_subscribe.multiplicationTable();
 	}
 
 }
