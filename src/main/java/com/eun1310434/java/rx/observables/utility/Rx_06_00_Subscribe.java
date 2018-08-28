@@ -62,7 +62,7 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
-public class Rx_06_Subscribe {
+public class Rx_06_00_Subscribe {
 	public <T> void withObserver() { 
 		CommonUtils.exampleStart("01) Subscribe With Observer anonymous class"); 	
 		
@@ -141,7 +141,7 @@ public class Rx_06_Subscribe {
 	}					
 	
 	public static void main(String[] args) { 
-		Rx_06_Subscribe rx_subscribe = new Rx_06_Subscribe();
+		Rx_06_00_Subscribe rx_subscribe = new Rx_06_00_Subscribe();
 		rx_subscribe.withObserver();
 		rx_subscribe.withConsumer();
 		rx_subscribe.withLambda();

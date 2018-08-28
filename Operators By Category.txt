@@ -78,7 +78,7 @@
 ¡Û 03) count() : count the number of items emitted by the source Observable and emit only this value
 ¡Û 04) max() : determine, and emit, the maximum-valued item emitted by an Observable
 ¡Û 05) min() : determine, and emit, the minimum-valued item emitted by an Observable
-¡Û 06) reduce() : apply a function to each item emitted by an Observable, sequentially, and emit the final value
+¡Ü 06) reduce() : apply a function to each item emitted by an Observable, sequentially, and emit the final value
 ¡Û 07) sum() : calculate the sum of numbers emitted by an Observable and emit this sum
 
 ¡à Backpressure(¹è¾Ð)
