@@ -24,19 +24,19 @@
 ¡Û 01) debounce() : only emit an item from an Observable if a particular timespan has passed without it emitting another item
 ¡Û 02) distinct() : suppress duplicate items emitted by an Observable
 ¡Û 03) elementAt() : emit only item n emitted by an Observable
-¡Û 04) filter() : emit only those items from an Observable that pass a predicate test
-¡Û 05) first() : emit only the first item, or the first item that meets a condition, from an Observable
+¡Ü 04) filter() : emit only those items from an Observable that pass a predicate test
+¡Ü 05) first() : emit only the first item, or the first item that meets a condition, from an Observable
 ¡Û 06) ignoreElements() : do not emit any items from an Observable but mirror its termination notification
-¡Û 07) last() : emit only the last item emitted by an Observable
+¡Ü 07) last() : emit only the last item emitted by an Observable
 ¡Û 08) sample() : emit the most recent item emitted by an Observable within periodic time intervals
-¡Û 09) skip() : suppress the first n items emitted by an Observable
-¡Û 10) skipLast() : suppress the last n items emitted by an Observable
-¡Û 11) take() : emit only the first n items emitted by an Observable
-¡Û 12) takeLast() : emit only the last n items emitted by an Observable
+¡Ü 09) skip() : suppress the first n items emitted by an Observable
+¡Ü 10) skipLast() : suppress the last n items emitted by an Observable
+¡Ü 11) take() : emit only the first n items emitted by an Observable
+¡Ü 12) takeLast() : emit only the last n items emitted by an Observable
 
 ¡à Combining(ÇÕ¼º) : Operators that work with multiple source Observables to create a single Observable
 ¡Û 01) and/then/when() : combine sets of items emitted by two or more Observables by means of Pattern and Plan intermediaries
-¡Û 02) combineLatest() : when an item is emitted by either of two Observables, combine the latest item emitted by each Observable via a specified function and emit items based on the results of this function
+¡Ü 02) combineLatest() : when an item is emitted by either of two Observables, combine the latest item emitted by each Observable via a specified function and emit items based on the results of this function
 ¡Û 03) join() : combine items emitted by two Observables whenever an item from one Observable is emitted during a time window defined according to an item emitted by the other Observable
 ¡Û 04) merge() : combine multiple Observables into one by merging their emissions
 ¡Û 05) startWith() : emit a specified sequence of items before beginning to emit the items from the source Observable
