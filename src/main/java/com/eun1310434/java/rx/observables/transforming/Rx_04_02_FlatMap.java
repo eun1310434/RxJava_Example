@@ -46,8 +46,6 @@ public final <U, R> Observable<R> flatMap(
 01) Predicate<T> : boolean test(T t) // return to true or false
 02) Consumer<T> : void accept(T t) // no return
 03) Function<T,R> : R apply(T t) // return to R type
-
-
 ==================================================================================================*/
 package com.eun1310434.java.rx.observables.transforming;
 
