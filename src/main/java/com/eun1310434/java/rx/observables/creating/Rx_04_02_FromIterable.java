@@ -51,7 +51,7 @@ public class Rx_04_02_FromIterable implements RxTest{
 	}
 	
 	public List<Item> list() {
-		CommonUtils.exampleStart("01) list");
+		CommonUtils.exampleStart("01) FromIterable - list");
 		List<Item> itemList = new ArrayList<>();
 		itemList.add(new Item("list-1"));
 		itemList.add(new Item("list-2"));
@@ -60,7 +60,7 @@ public class Rx_04_02_FromIterable implements RxTest{
 	}
 
 	public Set<Item> set() {
-		CommonUtils.exampleStart("02) set");
+		CommonUtils.exampleStart("02) FromIterable - set");
 		Set<Item> itemSet = new HashSet<>();
 		itemSet.add(new Item("set-1"));
 		itemSet.add(new Item("set-2"));
@@ -69,7 +69,7 @@ public class Rx_04_02_FromIterable implements RxTest{
 	}
 
 	public BlockingQueue<Item> blockingQueue() {
-		CommonUtils.exampleStart("03) blockingQueue");
+		CommonUtils.exampleStart("03) FromIterable - blockingQueue");
 		BlockingQueue<Item> itemQueue = new ArrayBlockingQueue<>(100);
 		itemQueue.add(new Item("blockingQueue-1"));
 		itemQueue.add(new Item("blockingQueue-2"));
@@ -78,7 +78,7 @@ public class Rx_04_02_FromIterable implements RxTest{
 	}
 
 	public ArrayList<Item> arrayList() {
-		CommonUtils.exampleStart("04) arrayList");
+		CommonUtils.exampleStart("04) FromIterable - arrayList");
 		ArrayList<Item> itemArraylist = new ArrayList<>();
 		itemArraylist.add(new Item("arrayList-1"));
 		itemArraylist.add(new Item("arrayList-2"));

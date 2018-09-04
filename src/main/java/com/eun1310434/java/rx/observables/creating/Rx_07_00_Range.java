@@ -40,19 +40,19 @@ import com.eun1310434.java.rx.common.Log;
 import io.reactivex.Observable;
 
 
-public class Rx_06_00_Just implements RxTest{
+public class Rx_07_00_Range implements RxTest{
 	
 	@Override
 	public void marbleDiagram() { 
-		CommonUtils.exampleStart("Just"); 	
+		CommonUtils.exampleStart("Range"); 	
 		Observable
-		.just(1,2,3,4,5,6,7,8,9,10) //just() : Observable의 선언방식 
+		.range(1,9)
 		.subscribe(data -> Log.i(data));
 		CommonUtils.exampleComplete();	
 	}
 	
 	public static void main(String args[]) { 
-		Rx_06_00_Just just = new Rx_06_00_Just();
-		just.marbleDiagram();
+		Rx_07_00_Range test = new Rx_07_00_Range();
+		test.marbleDiagram();
 	}	
 }

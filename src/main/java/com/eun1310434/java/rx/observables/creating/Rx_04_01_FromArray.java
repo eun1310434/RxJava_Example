@@ -43,13 +43,13 @@ public class Rx_04_01_FromArray implements RxTest{
 	}
 	
 	private Integer[] integerArray() { 
-		CommonUtils.exampleStart("01) integerArray");
+		CommonUtils.exampleStart("01) FromArray - integerArray");
 		Integer[] arr = {100, 200, 300}; // Declaration Integer array
 		return arr;
 	}
 	
 	private int[] intArray() {
-		CommonUtils.exampleStart("02) intArray");
+		CommonUtils.exampleStart("02) FromArray - intArray");
 		int[] intArray = {400, 500, 600}; // Declaration int array
 		return intArray;
 	}

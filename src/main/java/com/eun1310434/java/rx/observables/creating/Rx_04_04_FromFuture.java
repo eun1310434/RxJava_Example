@@ -58,7 +58,7 @@ public class Rx_04_04_FromFuture implements RxTest{
 	
 	
 	public Future<String> lambda() {
-		CommonUtils.exampleStart("01) lambda");
+		CommonUtils.exampleStart("01) FromFuture - lambda");
 		Future<String> future = Executors.newSingleThreadExecutor().submit(() -> {
 			Thread.sleep(1000);
 			return "After 1 Sec : Hello Future-lambda";
@@ -70,7 +70,7 @@ public class Rx_04_04_FromFuture implements RxTest{
 	}
 
 	public Future<String> anonymous() {
-		CommonUtils.exampleStart("02) anonymous");
+		CommonUtils.exampleStart("02) FromFuture - anonymous");
 		Callable<String> callable = new Callable<String>() {
 			@Override
 			public String call() throws Exception {

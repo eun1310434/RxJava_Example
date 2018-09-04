@@ -63,7 +63,7 @@ public class Rx_04_03_FromCallable implements RxTest{
 	}
 	
 	public Callable<String> lambda() { 
-		CommonUtils.exampleStart("01) lambda");
+		CommonUtils.exampleStart("01) FromCallable - lambda");
 		
 		Callable<String> callable = () -> { 
 			Thread.sleep(1000);
@@ -73,7 +73,7 @@ public class Rx_04_03_FromCallable implements RxTest{
 	}
 	
 	public Callable<String> anonymous() { 
-		CommonUtils.exampleStart("02) anonymous");
+		CommonUtils.exampleStart("02) FromCallable - anonymous");
 		Callable<String> callable = new Callable<String>() {
 			@Override
 			public String call() throws Exception {

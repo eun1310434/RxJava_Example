@@ -44,7 +44,7 @@ public class Rx_01_00_Create implements RxTest{
 	}
 	
 	public void lambda() {
-		CommonUtils.exampleStart("01) Lambda");
+		CommonUtils.exampleStart("01) Create - Lambda");
 		Observable<Integer> source = Observable
 				.create((ObservableEmitter<Integer> emitter) -> {
 					emitter.onNext(100);
@@ -59,7 +59,7 @@ public class Rx_01_00_Create implements RxTest{
 	
 	
 	public void anonymous() {
-		CommonUtils.exampleStart("02) Anonymous Print");
+		CommonUtils.exampleStart("02) Create - Anonymous Print");
 		Observable<Integer> source = Observable
 				.create(new ObservableOnSubscribe<Integer>() {
 					@Override

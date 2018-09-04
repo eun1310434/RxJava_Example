@@ -58,7 +58,7 @@ public class Rx_04_05_FromPublisher implements RxTest{
 	}
 	
 	public Publisher<String> lambda() { 
-		CommonUtils.exampleStart("01) lambda");
+		CommonUtils.exampleStart("01) FromPublisher - lambda");
 		Publisher<String> publisher = (Subscriber<? super String> s) -> { 
 			s.onNext("Hello Observable.fromPublisher()::lambda");
 			s.onNext("A");
@@ -69,7 +69,7 @@ public class Rx_04_05_FromPublisher implements RxTest{
 	}
 	
 	public Publisher<String> anonymous() { 
-		CommonUtils.exampleStart("02) anonymous");
+		CommonUtils.exampleStart("02) FromPublisher - anonymous");
 		Publisher<String> publisher = new Publisher<String>() {
 			@Override
 			public void subscribe(Subscriber<? super String> s) {
