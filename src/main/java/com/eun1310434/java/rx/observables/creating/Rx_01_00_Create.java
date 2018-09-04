@@ -1,28 +1,17 @@
 /*==================================================================================================
 □ INFORMATION
-○ Data : 22.08.2018
-○ Mail : eun1310434@naver.com
+○ Data : 04.Sep.2018
+○ Mail : eun1310434@gmail.com
 ○ WebPage : https://eun1310434.github.io/
-○ Reference
-- RxJava 프로그래밍 P50
+○ Reference : RxJava 프로그래밍 P48
      
 □ FUNCTION
 ○ 
    
 □ Study
-○ Data Source
-- Observable
-- Single
-- Maybe
-- Subject
-- Completable
-
-○ Data Receiver
-- Subscriber : Observable과 연결할 때는 "subscribe()" Calling. 
-- Observer : RxJava는 observer pattern을 implement. 
-- Consumer : RxJava 2에서는 Comsumer를 Parameter로 사용
-
+○ Creating(생성) : Operators that originate new Observables.
 ○ create()
+create an Observable from scratch by calling observer methods programmatically
 - Observable<T> create(ObservableInSubscribe<T> source)
 - public interface ObservableOnSubscribe<T>{
 	      void subscribe(ObservableEmitter<T> e) throws Exception;
@@ -38,53 +27,62 @@
 package com.eun1310434.java.rx.observables.creating;
 
 import com.eun1310434.java.rx.common.CommonUtils;
+import com.eun1310434.java.rx.common.Log;
+import com.eun1310434.java.rx.common.RxTest;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.functions.Consumer;
 
-public class Rx_01_00_Create {
+public class Rx_01_00_Create implements RxTest{
+
+	@Override
+	public void marbleDiagram() { 
+		lambda();
+		anonymous();
+	}
+	
 	public void lambda() {
 		CommonUtils.exampleStart("01) Lambda");
-		Observable<Integer> source = Observable.create((ObservableEmitter<Integer> emitter) -> {
-			emitter.onNext(100);
-			emitter.onNext(200);
-			emitter.onNext(300);
-			emitter.onComplete();
-		});
+		Observable<Integer> source = Observable
+				.create((ObservableEmitter<Integer> emitter) -> {
+					emitter.onNext(100);
+					emitter.onNext(200);
+					emitter.onNext(300);
+					emitter.onComplete();
+				});
 
-		source.subscribe(System.out::print); // method reference java 8
-		source.subscribe(data -> System.out.println("Result : " + data));
+		source.subscribe(data -> Log.i(data));
 		CommonUtils.exampleComplete();
 	}
 	
 	
 	public void anonymous() {
 		CommonUtils.exampleStart("02) Anonymous Print");
-		Observable<Integer> source = Observable.create(new ObservableOnSubscribe<Integer>() {
-			@Override
-			public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
-				// TODO Auto-generated method stub
-				emitter.onNext(100);
-				emitter.onNext(200);
-				emitter.onNext(300);
-				emitter.onComplete();
-			}
-		});
+		Observable<Integer> source = Observable
+				.create(new ObservableOnSubscribe<Integer>() {
+					@Override
+					public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
+						// TODO Auto-generated method stub
+						emitter.onNext(100);
+						emitter.onNext(200);
+						emitter.onNext(300);
+						emitter.onComplete();
+					}
+				});
 		
 		source.subscribe(new Consumer<Integer>() {
 			@Override
 			public void accept(Integer data) throws Exception {
-				System.out.println("Result : " + data);
+				Log.i(data);
 			}
 		});
 		CommonUtils.exampleComplete();
 	}
 
 	public static void main(String[] args) {
-		Rx_01_00_Create create = new Rx_01_00_Create();
-		create.lambda();// <- Simple
-		create.anonymous();
+		Rx_01_00_Create test = new Rx_01_00_Create();
+		test.marbleDiagram();
 	}
 }

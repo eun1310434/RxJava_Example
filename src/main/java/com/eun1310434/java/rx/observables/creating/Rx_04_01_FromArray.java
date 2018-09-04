@@ -1,52 +1,39 @@
 /*==================================================================================================
 □ INFORMATION
-○ Data : 22.08.2018
-○ Mail : eun1310434@naver.com
+○ Data : 04.Sep.2018
+○ Mail : eun1310434@gmail.com
 ○ WebPage : https://eun1310434.github.io/
-○ Reference
-- RxJava 프로그래밍 P55
+○ Reference : RxJava 프로그래밍 P53
      
 □ FUNCTION
 ○ 
    
 □ Study
-○ Data Source
-- Observable
-- Single
-- Maybe
-- Subject
-- Completable
-
-○ Data Receiver
-- Subscriber : Observable과 연결할 때는 "subscribe()" Calling. 
-- Observer : RxJava는 observer pattern을 implement. 
-- Consumer : RxJava 2에서는 Comsumer를 Parameter로 사용
-
+○ Creating(생성) : Operators that originate new Observables.
+○ From() : convert some other object or data structure into an Observable
 ○ fromArray()
--
 ==================================================================================================*/
 package com.eun1310434.java.rx.observables.creating;
 
 import java.util.stream.IntStream;
 
 import com.eun1310434.java.rx.common.CommonUtils;
+import com.eun1310434.java.rx.common.Log;
+import com.eun1310434.java.rx.common.RxTest;
 
 import io.reactivex.Observable;
 
-public class Rx_04_01_FromArray {
-	public void integerArray() { 
-		CommonUtils.exampleStart("01) integerArray");
-		Integer[] arr = {100, 200, 300}; // Declaration Integer array
-		Observable<Integer> source = Observable.fromArray(arr);
-		source.subscribe(System.out::println);// method reference java 8
-		CommonUtils.exampleComplete();
+public class Rx_04_01_FromArray implements RxTest{
+	
+	@Override
+	public void marbleDiagram() { 
+		observableSet(integerArray());
+		observableSet(toIntegerArray(intArray()));
 	}
 	
-	public void intArray() {
-		CommonUtils.exampleStart("02) intArray");
-		int[] intArray = {400, 500, 600}; // Declaration int array
-		Observable<Integer> source = Observable.fromArray(toIntegerArray(intArray));
-		source.subscribe(System.out::println);// method reference java 8
+	public void observableSet(Integer[] arr){
+		Observable<Integer> source = Observable.fromArray(arr);
+		source.subscribe(data -> Log.i(data));// method reference java 8
 		CommonUtils.exampleComplete();
 	}
 	
@@ -55,9 +42,20 @@ public class Rx_04_01_FromArray {
 		//IntegerArray -> intArray : convert
 	}
 	
+	private Integer[] integerArray() { 
+		CommonUtils.exampleStart("01) integerArray");
+		Integer[] arr = {100, 200, 300}; // Declaration Integer array
+		return arr;
+	}
+	
+	private int[] intArray() {
+		CommonUtils.exampleStart("02) intArray");
+		int[] intArray = {400, 500, 600}; // Declaration int array
+		return intArray;
+	}
+	
 	public static void main(String[] args){ 
 		Rx_04_01_FromArray test = new Rx_04_01_FromArray();
-		test.integerArray();
-		test.intArray();
+		test.marbleDiagram();
 	}	
 }
