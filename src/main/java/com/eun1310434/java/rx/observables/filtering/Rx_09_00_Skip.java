@@ -36,7 +36,7 @@ public class Rx_09_00_Skip implements RxTest {
 
 	@Override
 	public void marbleDiagram() { 
-		CommonUtils.exampleStart("01) MarbleDiagram : skip()");
+		CommonUtils.exampleStart("01) skip()");
 		Integer[] numbers = {100, 200, 300, 400, 500};
 		
 		Observable<Integer> source = Observable

@@ -37,11 +37,13 @@ public class Rx_11_00_Take implements RxTest {
 
 	@Override
 	public void marbleDiagram() { 
-		CommonUtils.exampleStart("01) MarbleDiagram : take()");
+		CommonUtils.exampleStart("01) take()");
 		 
 		Integer[] numbers = {100, 200, 300, 400, 500};
 		
-		Observable<Integer> source = Observable.fromArray(numbers).take(3);
+		Observable<Integer> source = Observable
+				.fromArray(numbers)
+				.take(3);
 		source .subscribe(data -> Log.i("take(3) values =" + data));			
 		
 		CommonUtils.exampleComplete();

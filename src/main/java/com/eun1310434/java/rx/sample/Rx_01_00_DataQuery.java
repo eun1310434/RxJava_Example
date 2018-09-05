@@ -39,7 +39,7 @@ import com.eun1310434.java.rx.common.RxTest;
 import io.reactivex.Maybe;
 import io.reactivex.Observable;
 
-public class Rx_01_00_Query implements RxTest {
+public class Rx_01_00_DataQuery implements RxTest {
 	
 	@Override
 	public void marbleDiagram() { 
@@ -75,7 +75,7 @@ public class Rx_01_00_Query implements RxTest {
 	}
 	
 	public static void main(String[] args) { 
-		Rx_01_00_Query test = new Rx_01_00_Query();
+		Rx_01_00_DataQuery test = new Rx_01_00_DataQuery();
 		test.marbleDiagram();
 	}
 }

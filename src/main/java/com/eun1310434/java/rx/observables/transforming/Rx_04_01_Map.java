@@ -1,10 +1,9 @@
 /*==================================================================================================
 □ INFORMATION
-○ Data : 28.08.2018
-○ Mail : eun1310434@gamil.com
+○ Data : 05.Sep.2018
+○ Mail : eun1310434@gmail.com
 ○ WebPage : https://eun1310434.github.io/
-○ Reference
-- RxJava 프로그래밍 P87
+○ Reference : RxJava 프로그래밍 P87
 
 □ FUNCTION
 ○ 
@@ -13,7 +12,6 @@
 ○ Transforming(변환) : Operators that transform items that are emitted by an Observable.
 
 ○ map()
-- Webpage : http://reactivex.io/documentation/operators/map.html
 - transform the items emitted by an Observable by applying a function to each item
 - The Map operator applies a function of your choosing to each item emitted by the source Observable, 
   and returns an Observable that emits the results of these function applications.
@@ -54,43 +52,12 @@ public class Rx_04_01_Map implements RxTest {
 	@Override
 	public void marbleDiagram() {
 		// 1. MarbleDiagram : map()
-		CommonUtils.exampleStart("01) MarbleDiagram : map()");
 		String[] colors = { RED, YELLOW, GREEN, BLUE };
-
-		// Observable<String> source = Observable.fromArray(colors).map(color -> getDiamond(color));
-		// Use the getDiamond();
-
-		Observable<String> source = Observable.fromArray(colors).map(color -> "Color: " + color);
-		// Use the Lambda
-
-		source.subscribe(_color -> Log.i(_color));
-		// source.subscribe(Log::i);
-
-		CommonUtils.exampleComplete();
-	}
-	
-	public String getDiamond(String ball) {
-		return "Colors: " + ball;
-	}
-
-	public void mapFunction() {
-		// 2. MapFunction : map()
-		CommonUtils.exampleStart("02) MarbleDiagram : mapFunction()");
+		
+		ObservableSet("01) map()", colors , color -> "Color: " + color);
 
 		Function<String, String> getDiamond = color -> "Color: " + color;
-
-		String[] balls = { RED, YELLOW, GREEN, BLUE };
-		Observable<String> source = Observable.fromArray(balls).map(getDiamond);
-
-		//source.subscribe(_color -> Log.i(_color));
-		source.subscribe(Log::i);
-
-		CommonUtils.exampleComplete();
-	}
-
-	public void mappingType() {
-		// 3. MmappingType : map()
-		CommonUtils.exampleStart("03) MarbleDiagram : mappingType()");
+		ObservableSet("02) mapFunction()", colors , getDiamond);
 		
 		Function<String, Integer> getIndex = ball -> {
 			switch (ball) {
@@ -106,23 +73,22 @@ public class Rx_04_01_Map implements RxTest {
 				return -1;
 			}
 		};
-
-		String[] balls = { RED, YELLOW, GREEN, BLUE };
-		Observable<Integer> source = Observable.fromArray(balls).map(getIndex); 
-
-		// source.subscribe(_color -> Log.i(_color));
-		source.subscribe(Log::i);
-
-		CommonUtils.exampleComplete();
+		ObservableSet("03) mapFunction() - switch", colors , getIndex);
+		
 	}
-
 	
+	public <T, R> void ObservableSet(String title, T[] strs, Function<T, R> fun){
+		CommonUtils.exampleStart(title);
+		Observable<R> source = Observable
+				.fromArray(strs)
+				.map(fun);
+		source.subscribe(Log::i);
+		CommonUtils.exampleComplete();
+	}	
 
 
 	public static void main(String[] args) {
 		Rx_04_01_Map test = new Rx_04_01_Map();
 		test.marbleDiagram();
-		test.mapFunction();
-		test.mappingType();
 	}
 }

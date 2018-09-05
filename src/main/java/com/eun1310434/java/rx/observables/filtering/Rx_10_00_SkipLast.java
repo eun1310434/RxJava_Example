@@ -38,10 +38,12 @@ public class Rx_10_00_SkipLast implements RxTest {
 
 	@Override
 	public void marbleDiagram() { 
-		CommonUtils.exampleStart("01) MarbleDiagram : skipLast()");
+		CommonUtils.exampleStart("01) skipLast()");
 		Integer[] numbers = {100, 200, 300, 400, 500};
 		
-		Observable<Integer> source = Observable.fromArray(numbers).skipLast(2);
+		Observable<Integer> source = Observable
+				.fromArray(numbers)
+				.skipLast(2);
 		source .subscribe(data -> Log.i("skipLast(2) values = " + data));	
 		
 		CommonUtils.exampleComplete();

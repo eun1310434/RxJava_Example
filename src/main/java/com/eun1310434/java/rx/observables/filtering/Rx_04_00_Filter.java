@@ -40,8 +40,7 @@ public class Rx_04_00_Filter implements RxTest {
 
 	@Override
 	public void marbleDiagram() { 
-		String[] strs = {
-				RED+" A", YELLOW+" B", GREEN+" C", SKY+" D", BLUE+" A", PUPPLE+" B"};
+		String[] strs = { RED+" A", YELLOW+" B", GREEN+" C", SKY+" D", BLUE+" A", PUPPLE+" B" };
 		
 		observableSet("01-01) String - filter() - endsWith() - anonymous", strs, new Predicate<String>() {
 			@Override
@@ -77,19 +76,9 @@ public class Rx_04_00_Filter implements RxTest {
 				
 	}
 	
-	public void observableSet(String title, String[] objs, Predicate<String> pre){
+	public <T> void observableSet(String title, T[] objs, Predicate<T> pre){
 		CommonUtils.exampleStart(title);
-		Observable<String> source = Observable
-				.fromArray(objs)
-				.filter(pre);
-		
-		source.subscribe(Log::i);
-		CommonUtils.exampleComplete();	
-	}
-
-	public void observableSet(String title, Integer[] objs, Predicate<Integer> pre){
-		CommonUtils.exampleStart(title);
-		Observable<Integer> source = Observable
+		Observable<T> source = Observable
 				.fromArray(objs)
 				.filter(pre);
 		

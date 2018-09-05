@@ -43,7 +43,7 @@ public class Rx_07_00_Last implements RxTest {
 
 	@Override
 	public void marbleDiagram() { 
-		CommonUtils.exampleStart("01) MarbleDiagram : last()");
+		CommonUtils.exampleStart("01) last()");
 		Integer[] numbers = {100, 200, 300, 400, 500};
 		
 		Single<Integer> single = Observable

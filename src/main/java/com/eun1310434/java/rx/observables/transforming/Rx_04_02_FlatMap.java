@@ -1,10 +1,9 @@
 /*==================================================================================================
 □ INFORMATION
-○ Data : 28.08.2018
-○ Mail : eun1310434@gamil.com
+○ Data : 05.Sep.2018
+○ Mail : eun1310434@gmail.com
 ○ WebPage : https://eun1310434.github.io/
-○ Reference
-- RxJava 프로그래밍 P90
+○ Reference : RxJava 프로그래밍 P90
 
 □ FUNCTION
 ○ 
@@ -13,7 +12,8 @@
 ○ Transforming(변환) : Operators that transform items that are emitted by an Observable.
 
 ○ flatMap()
-- Webpage : http://reactivex.io/documentation/operators/flatmap.html
+- flatMap() 함수는 map()함수와 다르게 1:1 또는 1:N 함수이다.
+- 결과값으로 Observable 이 나온다.
 - transform the items emitted by an Observable into Observables, 
   then flatten the emissions from those into a single Observable
 - The FlatMap operator transforms an Observable by applying a function 
@@ -37,7 +37,7 @@ public final <R> Observable<R> flatMap(
 @SchedulerSupport(SchedulerSupport.NONE)
 public final <U, R> Observable<R> flatMap(
     Function<? super T, ? extends ObservableSource<? extends U>> mapper,
-    BitFunction<? super T, ? super U, ? extends R> resultSelector
+    BiFunction<? super T, ? super U, ? extends R> resultSelector
 )
 - BitFunction<T,U,R> resultSelector : T parameter is mapper
 
@@ -53,97 +53,74 @@ import static com.eun1310434.java.rx.common.Shape.BLUE;
 import static com.eun1310434.java.rx.common.Shape.GREEN;
 import static com.eun1310434.java.rx.common.Shape.RED;
 
-import java.util.Scanner;
-
 import com.eun1310434.java.rx.common.CommonUtils;
 import com.eun1310434.java.rx.common.Log;
 import com.eun1310434.java.rx.common.RxTest;
 
 import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
+import io.reactivex.functions.BiFunction;
 import io.reactivex.functions.Function;
 
 public class Rx_04_02_FlatMap implements RxTest {
 
 	@Override
 	public void marbleDiagram() { 
-		// 1. MarbleDiagram : flatMap()
-		CommonUtils.exampleStart("01) MarbleDiagram : flatMap()");
+		String[] colors = new String [] {RED, GREEN, BLUE}; 
 		
-		Function<String, Observable<String>> getDoubleDiamonds = 
-				color -> Observable.just("Color : "+ color, "Color : "+ color);
+		Function<String, Observable<String>> getDoubleDiamonds = color -> Observable.just("Color1 : "+ color + "Color2 : "+ color);
+		ObservableSet("1-1.flatMap()",colors, getDoubleDiamonds );		
+		ObservableSet("1-2.flatMap() - Lambda", colors, (Function<String, Observable<String>>) color -> Observable.just("Color1 : "+ color + "Color2 : "+ color));
+		ObservableSet("1-3.flatMap() - Lambda", colors, (Function<String, Observable<String>>) color -> Observable.just(color), (colorA, colorB) -> "Color1 : "+ colorA + "Color2 : "+ colorB);
 		
-		String[] colors = {RED, GREEN, BLUE}; 
-		Observable<String> source = Observable.fromArray(colors).flatMap(getDoubleDiamonds);
 
-		// source.subscribe(_color -> Log.i(_color));
+		Function<Integer, Observable<String>> getMultiplicationTable = num -> Observable.range(1,9).map(row -> num + " * " + row + " = " + num*row);
+		ObservableSet("2-1.flatMap() - Anony", 2, getMultiplicationTable);
+		ObservableSet("2-2.flatMap() - Lambda", 2, num -> Observable.range(1,9).map(row -> num + " * " + row + " = " + num*row));
+		ObservableSet("2-3.flatMap() - Lambda", 2, num -> Observable.range(1,9), (num, row) ->  num + " * " + row + " = " + num*row);
+		
+	}
+
+	public <T, R> void ObservableSet(String title, T[] strs, Function<? super T, ? extends ObservableSource<? extends R>> fun){
+		CommonUtils.exampleStart(title);
+		Observable<R> source = Observable
+				.fromArray(strs)
+				.flatMap(fun);
 		source.subscribe(Log::i);
 		CommonUtils.exampleComplete();
-	}
+	}	
 
-	public void flatMapLambda() { 
-		// 2. MarbleDiagram : flatMapLambda()
-		CommonUtils.exampleStart("02) MarbleDiagram : flatMapLambda()");
-				
-		String[] colors = {RED, GREEN, BLUE}; 
-		Observable<String> source = Observable.fromArray(colors).flatMap(
-				color -> Observable.just("Color : "+ color, "Color : "+ color)
-				);
-		
-		//source.subscribe(_color -> Log.i(_color));
+	public <T, U, R> void ObservableSet(String title, T[] strs, Function<? super T, ? extends ObservableSource<? extends U>> fun, BiFunction<? super T, ? super U, ? extends R> bifun){
+		CommonUtils.exampleStart(title);
+		Observable<R> source = Observable
+				.fromArray(strs)
+				.flatMap(fun, bifun);
 		source.subscribe(Log::i);
 		CommonUtils.exampleComplete();
-	}
+	}	
 
-	public void multiplicationTable_A() { 
-		// 3. MarbleDiagram : multiplicationTable()
-		CommonUtils.exampleStart("03) MarbleDiagram : multiplicationTable()");
-		
-
-		Function<Integer, Observable<String>> getMultiplicationTable = 
-				num -> Observable.range(1,9).map(row -> num + " * " + row + " = " + num*row);
-		
-		Scanner in = new Scanner(System.in);
-		System.out.println("Multiplication Table Input:");
-		int dan = Integer.parseInt(in.nextLine());				
-			
-		Observable<String> source = Observable
+	public <T, R> void ObservableSet(String title, T dan, Function<? super T, ? extends ObservableSource<? extends R>> fun){
+		CommonUtils.exampleStart(title);
+		Observable<R> source = Observable
 				.just(dan)
-				.flatMap(getMultiplicationTable);
-				//.flatMap(num -> Observable.range(1,9).map(row -> num + " * " + row + " = " + num*row));
-		
-
-		source.subscribe(_dan -> Log.i(_dan));
-		//source.subscribe(Log::i);
-		//source.subscribe(System.out::println);
-		in.close();
-		
+				.flatMap(fun);
+		source.subscribe(Log::i);
 		CommonUtils.exampleComplete();
-	}
-	
-	public void multiplicationTable_B() { // usingResultSelector
-		// 4. MarbleDiagram : multiplicationTable_B() - usingResultSelector
-		CommonUtils.exampleStart("04) MarbleDiagram : multiplicationTable_B() - usingResultSelector");
+	}	
 
-		Scanner in = new Scanner(System.in);
-		System.out.println("Multiplication Table Input:");
-		int dan = Integer.parseInt(in.nextLine());			
-
-		Observable<String> source = Observable
+	public <T, U, R> void ObservableSet(String title, T dan, Function<? super T, ? extends ObservableSource<? extends U>> fun, BiFunction<? super T, ? super U, ? extends R> bifun){
+		CommonUtils.exampleStart(title);
+		Observable<R> source = Observable
 				.just(dan)
-				.flatMap(num -> Observable.range(1, 9), (num, row) ->  num + " * " + row + " = " + num * row);
-		//Observable.range(1, 9) becomes a row 
-		source.subscribe(System.out::println);
-		in.close();
-
+				.flatMap(fun, bifun);
+		source.subscribe(Log::i);
 		CommonUtils.exampleComplete();
-	}
+	}	
+
 	
 	public static void main(String[] args) { 
 		Rx_04_02_FlatMap test = new Rx_04_02_FlatMap();
 		test.marbleDiagram();
-		test.flatMapLambda();
-		//test.multiplicationTable_A();
-		test.multiplicationTable_B();
 		
 	}
 }

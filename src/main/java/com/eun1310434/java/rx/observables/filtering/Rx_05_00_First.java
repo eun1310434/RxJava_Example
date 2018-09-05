@@ -42,7 +42,7 @@ public class Rx_05_00_First implements RxTest {
 
 	@Override
 	public void marbleDiagram() { 
-		CommonUtils.exampleStart("01) MarbleDiagram : first()");
+		CommonUtils.exampleStart("01) first()");
 		Integer[] numbers = {100, 200, 300, 400, 500};
 		
 		Single<Integer> single = Observable

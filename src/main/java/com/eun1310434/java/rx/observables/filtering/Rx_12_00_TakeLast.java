@@ -35,10 +35,12 @@ public class Rx_12_00_TakeLast implements RxTest {
 
 	@Override
 	public void marbleDiagram() { 
-		CommonUtils.exampleStart("01) MarbleDiagram : takeLast()");
+		CommonUtils.exampleStart("01) takeLast()");
 		Integer[] numbers = {100, 200, 300, 400, 500};
 		
-		Observable<Integer> source = Observable.fromArray(numbers).takeLast(3);
+		Observable<Integer> source = Observable
+				.fromArray(numbers)
+				.takeLast(3);
 		source.subscribe(data -> System.out.println("takeLast(3) values =" + data));
 		
 		CommonUtils.exampleComplete();

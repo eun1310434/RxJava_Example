@@ -43,7 +43,6 @@
 ○ 06) switch() : convert an Observable that emits Observables into a single Observable that emits the items emitted by the most-recently-emitted of those Observables
 ○ 07) zip() : combine the emissions of multiple Observables together via a specified function and emit single items for each combination based on the results of this function
 
-
 - Error Handling(오류 처리) : Operators that help to recover from error notifications from an Observable
 ○ 01) catch() : recover from an onError notification by continuing the sequence without error
 ○ 02) retry() : if a source Observable sends an onError notification, resubscribe to it in the hopes that it will complete without error
