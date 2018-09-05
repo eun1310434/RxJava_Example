@@ -1,10 +1,9 @@
 /*==================================================================================================
 □ INFORMATION
-  ○ Data : 18.08.2018
-  ○ Mail : eun1310434@naver.com
-  ○ WebPage : https://eun1310434.github.io/
-  ○ Reference
-     - RxJava 프로그래밍 P43
+○ Data : 04.Sep.2018
+○ Mail : eun1310434@gmail.com
+○ WebPage : https://eun1310434.github.io/
+○ Reference : RxJava 프로그래밍 P59
      
 □ FUNCTION
   ○ 

@@ -1,15 +1,17 @@
 /*==================================================================================================
 □ INFORMATION
-○ Data : 28.08.2018
+○ Data : 04.Sep.2018
 ○ Mail : eun1310434@gmail.com
 ○ WebPage : https://eun1310434.github.io/
-○ Reference
-- RxJava 프로그래밍 P100
+○ Reference : RxJava 프로그래밍 P100
      
 □ FUNCTION
 ○ 
    
 □ Study
+○ Filtering Observables
+- Operators that selectively emit items from a source Observable.
+
 ○ take(n)
 - emit only the first n items emitted by an Observable
 - You can emit only the first n items emitted by an Observable 
@@ -38,11 +40,10 @@ public class Rx_11_00_Take implements RxTest {
 		CommonUtils.exampleStart("01) MarbleDiagram : take()");
 		 
 		Integer[] numbers = {100, 200, 300, 400, 500};
-		Observable<Integer> source;
 		
-		//3. take(N) 
-		source = Observable.fromArray(numbers).take(3);
+		Observable<Integer> source = Observable.fromArray(numbers).take(3);
 		source .subscribe(data -> Log.i("take(3) values =" + data));			
+		
 		CommonUtils.exampleComplete();
 	}
 	

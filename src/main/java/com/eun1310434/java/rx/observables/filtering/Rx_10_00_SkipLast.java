@@ -1,15 +1,17 @@
 /*==================================================================================================
 □ INFORMATION
-○ Data : 28.08.2018
+○ Data : 04.Sep.2018
 ○ Mail : eun1310434@gmail.com
 ○ WebPage : https://eun1310434.github.io/
-○ Reference
-- RxJava 프로그래밍 P97
+○ Reference : RxJava 프로그래밍 P97
      
 □ FUNCTION
 ○ 
    
 □ Study
+○ Filtering Observables
+- Operators that selectively emit items from a source Observable.
+
 ○ skipLast(n)
 - suppress the final n items emitted by an Observable
 - You can ignore the final n items emitted by an Observable 
@@ -38,10 +40,8 @@ public class Rx_10_00_SkipLast implements RxTest {
 	public void marbleDiagram() { 
 		CommonUtils.exampleStart("01) MarbleDiagram : skipLast()");
 		Integer[] numbers = {100, 200, 300, 400, 500};
-		Observable<Integer> source;
 		
-		//skipLast(N) 
-		source = Observable.fromArray(numbers).skipLast(2);
+		Observable<Integer> source = Observable.fromArray(numbers).skipLast(2);
 		source .subscribe(data -> Log.i("skipLast(2) values = " + data));	
 		
 		CommonUtils.exampleComplete();
