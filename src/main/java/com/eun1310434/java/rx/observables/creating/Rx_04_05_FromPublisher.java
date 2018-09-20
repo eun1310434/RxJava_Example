@@ -47,8 +47,9 @@ public class Rx_04_05_FromPublisher implements RxTest{
 	
 	@Override
 	public void marbleDiagram() { 
-		observableSet(lambda());
-		observableSet(anonymous());
+		Publisher<String> publisher = null;
+		observableSet(lambda(publisher));
+		observableSet(anonymous(publisher));
 	}
 	
 	public void observableSet(Publisher<String> publisher){
@@ -57,9 +58,9 @@ public class Rx_04_05_FromPublisher implements RxTest{
 		CommonUtils.exampleComplete();
 	}
 	
-	public Publisher<String> lambda() { 
+	public Publisher<String> lambda(Publisher<String> publisher) { 
 		CommonUtils.exampleStart("01) FromPublisher - lambda");
-		Publisher<String> publisher = (Subscriber<? super String> s) -> { 
+		publisher = (Subscriber<? super String> s) -> { 
 			s.onNext("Hello Observable.fromPublisher()::lambda");
 			s.onNext("A");
 			s.onNext("B");
@@ -68,14 +69,15 @@ public class Rx_04_05_FromPublisher implements RxTest{
 		return publisher;
 	}
 	
-	public Publisher<String> anonymous() { 
+	public Publisher<String> anonymous(Publisher<String> publisher) { 
 		CommonUtils.exampleStart("02) FromPublisher - anonymous");
-		Publisher<String> publisher = new Publisher<String>() {
+		publisher = new Publisher<String>() {
 			@Override
 			public void subscribe(Subscriber<? super String> s) {
 				s.onNext("Hello Observable.fromPublisher()::anonymous");
 				s.onNext("A");
 				s.onNext("B");
+				s.onNext("C");
 				s.onComplete();				
 			}
 		};

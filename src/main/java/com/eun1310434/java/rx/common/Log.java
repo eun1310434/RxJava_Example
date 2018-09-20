@@ -31,7 +31,7 @@ public class Log {
 
 	public static void it(Object obj) { 
 		long time = System.currentTimeMillis() - CommonUtils.startTime;
-		System.out.println(getThreadName() + " | " + time + " | " + "value = " + obj);		
+		System.out.println(getThreadName() + " | " + time + " | " + "value >> " + obj);		
 	}
 	
 //	public static void it(List<String> list) { 
@@ -68,7 +68,7 @@ public class Log {
 	
 	public static String getThreadName() { 
 		String threadName = Thread.currentThread().getName(); 
-		if (threadName.length() > 30) {
+		if (threadName.length() > 30) {//이름 설정
 			threadName = threadName.substring(0, 30) + "...";
 		}		
 		return threadName;

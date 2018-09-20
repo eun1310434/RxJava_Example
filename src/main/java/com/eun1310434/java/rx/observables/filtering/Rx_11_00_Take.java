@@ -44,7 +44,7 @@ public class Rx_11_00_Take implements RxTest {
 		Observable<Integer> source = Observable
 				.fromArray(numbers)
 				.take(3);
-		source .subscribe(data -> Log.i("take(3) values =" + data));			
+		source .subscribe(data -> Log.i("take(3) values =" + data));
 		
 		CommonUtils.exampleComplete();
 	}

@@ -45,9 +45,12 @@ import io.reactivex.Observable;
 public class Rx_04_04_FromFuture implements RxTest{
 	
 	@Override
-	public void marbleDiagram() { 
-		observableSet(lambda());
-		observableSet(anonymous());
+	public void marbleDiagram() {
+		Future<String> future = null;
+		Callable<String> callable = null;
+		
+		observableSet(lambda(future));
+		observableSet(anonymous(callable, future));
 	}
 	
 	public void observableSet(Future<String> future){
@@ -57,9 +60,9 @@ public class Rx_04_04_FromFuture implements RxTest{
 	}
 	
 	
-	public Future<String> lambda() {
+	public Future<String> lambda(Future<String> future ) {
 		CommonUtils.exampleStart("01) FromFuture - lambda");
-		Future<String> future = Executors.newSingleThreadExecutor().submit(() -> {
+		future = Executors.newSingleThreadExecutor().submit(() -> {
 			Thread.sleep(1000);
 			return "After 1 Sec : Hello Future-lambda";
 		});
@@ -69,9 +72,9 @@ public class Rx_04_04_FromFuture implements RxTest{
 		return future;
 	}
 
-	public Future<String> anonymous() {
+	public Future<String> anonymous(Callable<String> callable, Future<String> future) {
 		CommonUtils.exampleStart("02) FromFuture - anonymous");
-		Callable<String> callable = new Callable<String>() {
+		callable = new Callable<String>() {
 			@Override
 			public String call() throws Exception {
 				Thread.sleep(1000);
@@ -79,7 +82,7 @@ public class Rx_04_04_FromFuture implements RxTest{
 			}
 		};
 
-		Future<String> future = Executors.newSingleThreadExecutor().submit(callable);
+		future = Executors.newSingleThreadExecutor().submit(callable);
 		// Executor Interface를 implementation한 Class에 Callable Object를 Parameter로 input Future Object를 return.
 		// get() method를 calling하면 Callable object에서 implementation한 계산 결과가 나올 때 까지 Blocking됨
 

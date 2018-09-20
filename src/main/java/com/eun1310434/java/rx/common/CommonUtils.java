@@ -27,6 +27,7 @@ public class CommonUtils {
 	
 
 	public static void exampleStart(String _title) { 
+		startTime = System.currentTimeMillis();
 		System.out.println(">> "+_title);
 	}
 	

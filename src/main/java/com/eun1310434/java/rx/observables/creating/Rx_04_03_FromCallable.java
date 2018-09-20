@@ -52,8 +52,9 @@ public class Rx_04_03_FromCallable implements RxTest{
 	
 	@Override
 	public void marbleDiagram() { 
-		observableSet(lambda());
-		observableSet(anonymous());
+		Callable<String> callable = null;
+		observableSet(lambda(callable));
+		observableSet(anonymous(callable));
 	}
 	
 	public void observableSet(Callable<String> call){
@@ -62,19 +63,18 @@ public class Rx_04_03_FromCallable implements RxTest{
 		CommonUtils.exampleComplete();
 	}
 	
-	public Callable<String> lambda() { 
+	public Callable<String> lambda(Callable<String> callable) { 
 		CommonUtils.exampleStart("01) FromCallable - lambda");
-		
-		Callable<String> callable = () -> { 
+		callable = () -> { 
 			Thread.sleep(1000);
 			return "After 1 Sec : Hello Callable-lambda";
 		};
 		return callable;
 	}
 	
-	public Callable<String> anonymous() { 
+	public Callable<String> anonymous(Callable<String> callable) { 
 		CommonUtils.exampleStart("02) FromCallable - anonymous");
-		Callable<String> callable = new Callable<String>() {
+		callable = new Callable<String>() {
 			@Override
 			public String call() throws Exception {
 				Thread.sleep(1000);
