@@ -73,7 +73,7 @@ public class Rx_05_00_Interval implements RxTest {
 		
 		CommonUtils.exampleComplete();
 	}
-	
+	 
 	public Function<Long, Long> getNumber(Function<Long, Long> fun) {
 		fun = new Function<Long, Long>() {
 			@Override
