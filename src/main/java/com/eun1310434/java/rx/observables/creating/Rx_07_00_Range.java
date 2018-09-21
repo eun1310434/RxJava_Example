@@ -59,7 +59,7 @@ public class Rx_07_00_Range implements RxTest{
 	}
 	
 	public Predicate<Integer> predicate_EvenNumber(Predicate<Integer> pre) {
-		pre = new Predicate<Integer>() {
+		pre = new Predicate<Integer>() { 
 			@Override
 			public boolean test(Integer num) throws Exception {
 				// TODO Auto-generated method stub
