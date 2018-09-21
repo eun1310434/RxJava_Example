@@ -14,6 +14,7 @@
 ○ Interval()
   - create an Observable that emits a sequence of integers spaced by a given time interval
   - 영원히 지속 실행되기 때문에 폴링 용도로 많이 사용
+  - 계산 스케줄러에서 실행(현재 스레드X)
   
 ○ Original Form
    @SchedulerSupport(SchedulerSupport.COMPUTATION)
@@ -70,6 +71,7 @@ public class Rx_05_00_Interval implements RxTest {
 		
 		CommonUtils.sleep(1000); 
 		// Thread.sleep()을 호출, 다른 스레드(RxComputationThreadPool-1)에서 실행이 완료될 때까지 기다리기 위하여 사용
+		// 왜냐하면 메인 스레드가 아닌 계산 스케줄러에서 실행됙 ㅣ때문에 사용
 		
 		CommonUtils.exampleComplete();
 	}

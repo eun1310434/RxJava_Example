@@ -9,7 +9,7 @@
 ¡Ü 07) range() : create an Observable that emits a range of sequential integers
 ¡Û 08) repeat() : create an Observable that emits a particular item or sequence of items repeatedly
 ¡Û 09) start() : create an Observable that emits the return value of a function
-¡Û 10) timer() : create an Observable that emits a single item after a given delay
+¡Ü 10) timer() : create an Observable that emits a single item after a given delay
 
 ¡à Transforming(º¯È¯) : Operators that transform items that are emitted by an Observable.
 ¡Û 01) buffer() : periodically gather items from an Observable into bundles and emit these bundles rather than emitting the items one at a time
