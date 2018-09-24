@@ -1,6 +1,6 @@
 ¡à Creating(»ý¼º) : Operators that originate new Observables.
 ¡Ü 01) create() : create an Observable from scratch by calling observer methods programmatically
-¡Û 02) defer() : do not create the Observable until the observer subscribes, and create a fresh Observable for each observer
+¡Ü 02) defer() : do not create the Observable until the observer subscribes, and create a fresh Observable for each observer
 ¡Û 03) empty/Never/Throw() : create Observables that have very precise and limited behavior
 ¡Ü 04) From() : convert some other object or data structure into an Observable
       * fromArray(), fromIterable(), fromCallable(), fromFuture(), fromPublisher()

@@ -34,25 +34,27 @@ public class Shape {
 	}
 
 	public static String getSuffix(String shape) { 
-		if (HEXAGON.equals(shape)) return "-H";
-		if (OCTAGON.equals(shape)) return "-O"; 
-		if (RECTANGLE.equals(shape)) return "-R";
-		if (TRIANGLE.equals(shape)) return "-T";
-		if (DIAMOND.equals(shape)) return "<>";
-		if (PENTAGON.equals(shape)) return "-P";
-		if (STAR.equals(shape)) return "-S";
+		if (HEXAGON.equals(shape)) return "-HEXAGON";
+		if (OCTAGON.equals(shape)) return "-OCTAGON"; 
+		if (RECTANGLE.equals(shape)) return "-RECTANGLE";
+		if (TRIANGLE.equals(shape)) return "-TRIANGLE";
+		if (DIAMOND.equals(shape)) return "-DIAMOND";
+		if (PENTAGON.equals(shape)) return "-PENTAGON";
+		if (STAR.equals(shape)) return "-STAR";
+		if (BALL.equals(shape)) return "-BALL";
 		return ""; //for BALL		
 	}
 
 	public static String getShape(String obj) {
 		if (obj == null || obj.equals("")) return NO_SHAPE;		
-		if (obj.endsWith("-H")) return HEXAGON;
-		if (obj.endsWith("-O")) return OCTAGON;
-		if (obj.endsWith("-R")) return RECTANGLE;
-		if (obj.endsWith("-T")) return TRIANGLE;
-		if (obj.endsWith("<>")) return DIAMOND;
-		if (obj.endsWith("-P")) return PENTAGON;
-		if (obj.endsWith("-S")) return STAR;
+		if (obj.endsWith("-HEXAGON")) return HEXAGON;
+		if (obj.endsWith("-OCTAGON")) return OCTAGON;
+		if (obj.endsWith("-RECTANGLE")) return RECTANGLE;
+		if (obj.endsWith("-TRIANGLE")) return TRIANGLE;
+		if (obj.endsWith("-DIAMOND")) return DIAMOND;
+		if (obj.endsWith("-PENTAGON")) return PENTAGON;
+		if (obj.endsWith("-STAR")) return STAR;
+		if (obj.endsWith("-BALL")) return BALL;
 		return "BALL";
 	}	
 	
