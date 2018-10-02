@@ -17,7 +17,7 @@
 °‹ 03) groupBy() : divide an Observable into a set of Observables that each emit a different group of items from the original Observable, organized by key
 °‹ 04) map() : transform the items emitted by an Observable by applying a function to each item
       * flatmap(), concatMap(), switchMap()
-°€ 05) scan() : apply a function to each item emitted by an Observable, sequentially, and emit each successive value
+°‹ 05) scan() : apply a function to each item emitted by an Observable, sequentially, and emit each successive value
 °€ 06) Window() : periodically subdivide items from an Observable into Observable windows and emit these windows rather than emitting the items one at a time
 
 °‡ Filtering(« ≈Õ) : Operators that selectively emit items from a source Observable.
