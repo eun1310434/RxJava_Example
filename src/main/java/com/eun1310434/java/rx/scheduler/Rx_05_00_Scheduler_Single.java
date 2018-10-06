@@ -1,10 +1,10 @@
 /*==================================================================================================
 □ INFORMATION
-  ○ Data : 05.Oct.2018
+  ○ Data : 06.Oct.2018
   ○ Mail : eun1310434@gmail.com
   ○ WebPage : https://eun1310434.github.io/
   ○ Reference
-    - RxJava 프로그래밍 P129
+    - RxJava 프로그래밍 P186
 
 □ FUNCTION
   ○ 
@@ -22,21 +22,17 @@
 
   ○ Scheduler Types
     - Schedulers.newThread();
-    - Schedulers.single();
+    - Schedulers.computation();
     - Schedulers.io();
     - Schedulers.trampoline();
-    - Schedulers.computation();
+    - Schedulers.single();
+    - Schedulers.from(executor);
 
-  ○ Schedulers.newThread()
-    - 새로운 스레드를 생성 가능 
-     
+  ○ Schedulers.single()
+    - 싱글 스레드 스케줄러는 RxSingleScheduler-1 스레드에서 실행
+    - 결국 단일 스레드만 사용
 ==================================================================================================*/
 package com.eun1310434.java.rx.scheduler;
-
-
-import static com.eun1310434.java.rx.common.Shape.BLUE;
-import static com.eun1310434.java.rx.common.Shape.GREEN;
-import static com.eun1310434.java.rx.common.Shape.RED;
 
 import com.eun1310434.java.rx.common.CommonUtils;
 import com.eun1310434.java.rx.common.Log;
@@ -45,39 +41,38 @@ import com.eun1310434.java.rx.common.ScheduleTest;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 
-public class NewThreadSchedulerExample implements ScheduleTest{
-	
+public class Rx_05_00_Scheduler_Single implements ScheduleTest{
+
 	@Override
 	public void run() {
-
-		String[] objs  = {RED, GREEN, BLUE};
-		newSchedulerStart(objs);
+		singleSchedulerStart();
 	}
 
-	public void newSchedulerStart(String[] objs){
-		schedulerSubscribe(observableSet(objs, "newThread() : A"));
-		schedulerSubscribe(observableSet(objs, "newThread() : B"));
+	public void singleSchedulerStart(){
+		schedulerSubscribe(observableSet(100,5), "Single() : A");
+		schedulerSubscribe(observableSet(200,5), "Single() : B");
+		schedulerSubscribe(observableSet(300,5), "Single() : C");
 		CommonUtils.sleep(1000);
 		CommonUtils.exampleComplete();
 	}
 	
-	public Observable<String> observableSet(String[] objs, String title) {
-		CommonUtils.exampleStart(title); // 시작 시간을 표시하는 유틸리티 메서드
-		return Observable
-				.fromArray(objs)
-				.map(data -> title + " - "+ data);
+	public Observable<Integer> observableSet(int start,int count) {
+		return Observable.range(start,count);
+		//현재 스래드에서 start 숫자부터 count개 숫자 발행 
 	}
 
-	//Schedulers.newThread()
-	public void schedulerSubscribe(Observable<String> scheduler) {
+
+	public void schedulerSubscribe(Observable<Integer> scheduler, String title) {
+		CommonUtils.exampleStart(title); // 시작 시간을 표시하는 유틸리티 메서드
 		scheduler
-		.subscribeOn(Schedulers.newThread())
-		.subscribe(str->Log.i(str));	
+		.subscribeOn(Schedulers.single())
+		.subscribe(str -> Log.i(title + " - " + str));	
 	}
 
 	
 	public static void main(String[] args) { 
-		NewThreadSchedulerExample test = new NewThreadSchedulerExample();
+		Rx_05_00_Scheduler_Single test = new Rx_05_00_Scheduler_Single();
 		test.run();
 	}
+
 }

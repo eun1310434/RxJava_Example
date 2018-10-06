@@ -1,10 +1,10 @@
 /*==================================================================================================
 □ INFORMATION
-  ○ Data : 05.Oct.2018
+  ○ Data : 06.Oct.2018
   ○ Mail : eun1310434@gmail.com
   ○ WebPage : https://eun1310434.github.io/
   ○ Reference
-    - RxJava 프로그래밍 P185
+    - RxJava 프로그래밍 P186
 
 □ FUNCTION
   ○ 
@@ -26,53 +26,38 @@
     - Schedulers.io();
     - Schedulers.trampoline();
     - Schedulers.single();
-
-  ○ Schedulers.trampoline()
-    - 새로운 스레드를 생성하지 않고 main 스레드에서 모든 작업을 실행
-    - 현재 스레드에 무한한 크기의 대기 행렬(Queue)를 자동으로 생성
-    - 큐에 작업을 넣은 후 1개씩 꺼내서 동작
-    - 구독 순서가 바뀌지 않음
+    - Schedulers.from(executor);
+    
+  ○ Schedulers.from(executor)
+    - 
 ==================================================================================================*/
 package com.eun1310434.java.rx.scheduler;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 import com.eun1310434.java.rx.common.CommonUtils;
 import com.eun1310434.java.rx.common.Log;
-import com.eun1310434.java.rx.common.ScheduleTest;
 
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 
-public class TrampolineSchedulerExample implements ScheduleTest{
-	
-	@Override
-	public void run() {
-		String[] orgs = {"RED", "GREEN", "BLUE"};	
-		trampolineSchedulerStart(orgs);
-	}
-
-	public void trampolineSchedulerStart(String[] orgs ){
-		schedulerSubscribe(observableSet(orgs, "Trampline() : A"));
-		schedulerSubscribe(observableSet(orgs, "Trampline() : B"));
-		CommonUtils.sleep(1000);
+public class Rx_06_00_Scheduler_Executor {
+	public void run() { 
+		final int THREAD_NUM = 2;
+		
+		String[] data = {"RED", "GREEN", "BLUE"};
+		Observable<String> source = Observable.fromArray(data);
+		Executor executor = Executors.newFixedThreadPool(THREAD_NUM);
+		
+		source.subscribeOn(Schedulers.from(executor)).subscribe(Log::i);
+		source.subscribeOn(Schedulers.from(executor)).subscribe(Log::i);
+		CommonUtils.sleep(1000);		
 		CommonUtils.exampleComplete();
 	}
 	
-	public Observable<String> observableSet(String[] orgs, String title) {
-		CommonUtils.exampleStart(title); // 시작 시간을 표시하는 유틸리티 메서드
-		return Observable
-				.fromArray(orgs)
-				.map(str -> title +" - "+str);
-	}
-
-
-	public void schedulerSubscribe(Observable<String> scheduler) {
-		scheduler
-		.subscribeOn(Schedulers.trampoline())
-		.subscribe(str->Log.i(str));	
-	}
-
 	public static void main(String[] args) { 
-		TrampolineSchedulerExample test = new TrampolineSchedulerExample();
+		Rx_06_00_Scheduler_Executor test = new Rx_06_00_Scheduler_Executor();
 		test.run();
 	}
 }

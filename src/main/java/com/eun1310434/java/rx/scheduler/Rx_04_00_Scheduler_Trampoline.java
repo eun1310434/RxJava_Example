@@ -4,7 +4,7 @@
   ○ Mail : eun1310434@gmail.com
   ○ WebPage : https://eun1310434.github.io/
   ○ Reference
-    - RxJava 프로그래밍 P182
+    - RxJava 프로그래밍 P185
 
 □ FUNCTION
   ○ 
@@ -24,18 +24,17 @@
     - Schedulers.newThread();
     - Schedulers.computation();
     - Schedulers.io();
-    - Schedulers.single();
     - Schedulers.trampoline();
+    - Schedulers.single();
+    - Schedulers.from(executor);
 
-  ○ Schedulers.io()
-    - 네트워크
-    - 입/출력 작업
-    - 계산 스케줄러와 다르게 기본으로 생성되는 스레드 개수가 다름
-      * 계산 스케줄러는 CPU 개수 만큼 스레드를 생성하지만 IO스케쥴러는 필요할 때 마다 스레드 계속 생성
+  ○ Schedulers.trampoline()
+    - 새로운 스레드를 생성하지 않고 main 스레드에서 모든 작업을 실행
+    - 현재 스레드에 무한한 크기의 대기 행렬(Queue)를 자동으로 생성
+    - 큐에 작업을 넣은 후 1개씩 꺼내서 동작
+    - 구독 순서가 바뀌지 않음
 ==================================================================================================*/
 package com.eun1310434.java.rx.scheduler;
-
-import java.io.File;
 
 import com.eun1310434.java.rx.common.CommonUtils;
 import com.eun1310434.java.rx.common.Log;
@@ -44,40 +43,37 @@ import com.eun1310434.java.rx.common.ScheduleTest;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 
-public class IOSchedulerExample implements ScheduleTest{
+public class Rx_04_00_Scheduler_Trampoline implements ScheduleTest{
 	
 	@Override
 	public void run() {
-		//list up files on C drive root
-		IOSchedulerStart("c:\\");
+		String[] orgs = {"RED", "GREEN", "BLUE"};	
+		trampolineSchedulerStart(orgs);
 	}
 
-	public void IOSchedulerStart(String root ){
-		File[] files = new File(root).listFiles();	
-		schedulerSubscribe(observableSet(files, "IO() : A"));
-		schedulerSubscribe(observableSet(files, "IO() : B"));
+	public void trampolineSchedulerStart(String[] orgs ){
+		schedulerSubscribe(observableSet(orgs, "Trampline() : A"));
+		schedulerSubscribe(observableSet(orgs, "Trampline() : B"));
 		CommonUtils.sleep(1000);
 		CommonUtils.exampleComplete();
 	}
 	
-	public Observable<String> observableSet(File[] files, String title) {
+	public Observable<String> observableSet(String[] orgs, String title) {
 		CommonUtils.exampleStart(title); // 시작 시간을 표시하는 유틸리티 메서드
 		return Observable
-				.fromArray(files)
-				//.filter(f -> !f.isDirectory()) //Directory를 제외한 파일만 선별
-				.map(f -> f.getAbsolutePath()); //Path 출력;
+				.fromArray(orgs)
+				.map(str -> title +" - "+str);
 	}
 
 
 	public void schedulerSubscribe(Observable<String> scheduler) {
 		scheduler
-		.subscribeOn(Schedulers.io())
+		.subscribeOn(Schedulers.trampoline())
 		.subscribe(str->Log.i(str));	
 	}
 
-	
 	public static void main(String[] args) { 
-		IOSchedulerExample test = new IOSchedulerExample();
+		Rx_04_00_Scheduler_Trampoline test = new Rx_04_00_Scheduler_Trampoline();
 		test.run();
 	}
 }
