@@ -22,9 +22,12 @@ import static com.eun1310434.java.rx.common.Shape.BLUE;
 import static com.eun1310434.java.rx.common.Shape.GREEN;
 import static com.eun1310434.java.rx.common.Shape.RED;
 
+import java.util.concurrent.TimeUnit;
+
 import com.eun1310434.java.rx.common.CommonUtils;
 import com.eun1310434.java.rx.common.Log;
 import com.eun1310434.java.rx.common.RxTest;
+import com.eun1310434.java.rx.common.OkHttpHelper;
 
 import io.reactivex.Observable;
 
@@ -34,6 +37,7 @@ public class Rx_08_00_Repeat implements RxTest{
 	public void marbleDiagram() { 
 		String[] colors = {RED, GREEN, BLUE};
 		ObservableSet("Repeat",colors,3);
+		PingTest("PingTest",1,10000);//2초 간격으로 서버에 ping 날리기
 	}
 
 	public void ObservableSet(String title,String[] array, int repeatTime){
@@ -42,6 +46,19 @@ public class Rx_08_00_Repeat implements RxTest{
 				.fromArray(array)
 				.repeat(repeatTime);
 		source.subscribe(data -> Log.it(data));
+		CommonUtils.exampleComplete();
+	}
+
+	public void PingTest(String title, int repeatTime, int sleepTime) { 
+		CommonUtils.exampleStart();
+		String serverUrl = "https://api.github.com/zen";
+		Observable.timer(repeatTime, TimeUnit.SECONDS)
+			.map(val -> serverUrl)
+			//.map(OkHttpHelper::get)
+			.map(data-> OkHttpHelper.get(data))
+			.repeat()
+			.subscribe(res -> Log.it("Ping Result : " + res));	
+		CommonUtils.sleep(sleepTime);
 		CommonUtils.exampleComplete();
 	}
 	
