@@ -51,10 +51,10 @@
 ¡Û 01) delay() : shift the emissions from an Observable forward in time by a particular amount
 ¡Û 02) do() : register an action to take upon a variety of Observable lifecycle events
 ¡Û 03) materialize/dematerialize() : represent both the items emitted and the notifications sent as emitted items, or reverse this process
-¡Û 04) observeOn() : specify the scheduler on which an observer will observe this Observable
+¡Ü 04) observeOn() : specify the scheduler on which an observer will observe this Observable
 ¡Û 05) serialize() : force an Observable to make serialized calls and to be well-behaved
 ¡Ü 06) subscribe() : operate upon the emissions and notifications from an Observable
-¡Û 07) subscribeOn() : specify the scheduler an Observable should use when it is subscribed to
+¡Ü 07) subscribeOn() : specify the scheduler an Observable should use when it is subscribed to
 ¡Û 08) timeInterval() : convert an Observable that emits items into one that emits indications of the amount of time elapsed between those emissions
 ¡Û 09) timeout() : mirror the source Observable, but issue an error notification if a particular period of time elapses without any emitted items
 ¡Û 10) timestamp() : attach a timestamp to each item emitted by an Observable

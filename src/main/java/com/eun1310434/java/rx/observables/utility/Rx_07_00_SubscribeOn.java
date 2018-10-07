@@ -8,19 +8,19 @@
     - http://rxmarbles.com/#switchMap
 
 □ FUNCTION
-○ 
+  ○ 
    
 □ Study
-○ Utility(유틸리티) : A toolbox of useful Operators for working with Observables
-○ Scheduler
-  - 스케줄러는 RxJava 코드를 어느 스레드에서 실행할지 지정할 수 있다.
-  - subscribeOn() 함수와 observeOn() 함수를 모두 지정하면 
-    Observable에서 데이터 흐름이 발생하는 스레드와 처리된 결과를 구독자에게 발행하는 스레드를 분리할 수 있다.
-  - subscribeOn() : Observable에서 subscribe()함수를 호출하여 구독할 때 실행되는 스레드를 지정
-  - observeOn() : Observable에서 생성한 흐름이 여기저기 함수를 거치며 처리될 때 동작이 어느 Thread에서 일어나는지 지정
-○ subscribeOn()
-  - specify the scheduler an Observable should use when it is subscribed to
-
+  ○ Utility(유틸리티) : A toolbox of useful Operators for working with Observables
+  ○ Scheduler
+    - 스케줄러는 RxJava 코드를 어느 스레드에서 실행할지 지정할 수 있다.
+    - subscribeOn() 함수와 observeOn() 함수를 모두 지정하면 
+      Observable에서 데이터 흐름이 발생하는 스레드와 처리된 결과를 구독자에게 발행하는 스레드를 분리할 수 있다.
+    - subscribeOn() : Observable에서 subscribe()함수를 호출하여 구독할 때 실행되는 스레드를 지정
+    - observeOn() : Observable에서 생성한 흐름이 여기저기 함수를 거치며 처리될 때 동작이 어느 Thread에서 일어나는지 지정
+  ○ subscribeOn()
+    - specify the scheduler an Observable should use when it is subscribed to
+    - 한번 호출했을 때 결정한 스레드를 고정하며 이후에는 다시 호출해도 스래드가 바뀌지 않는다.
 ==================================================================================================*/
 package com.eun1310434.java.rx.observables.utility;
 
