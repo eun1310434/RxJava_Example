@@ -45,7 +45,9 @@ public class Rx_04_02_FromIterable implements RxTest{
 	}
 	
 	public void observableSet(Iterable<Item> items){
-		Observable<Item> source = Observable.fromIterable(items);
+		Observable<Item> source = Observable
+				.fromIterable(items);
+		
 		source.subscribe(data -> Log.i(data.getId()));
 		CommonUtils.exampleComplete();
 	}
